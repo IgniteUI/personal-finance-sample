@@ -1,0 +1,127 @@
+﻿<script type="text/javascript">
+    function LiabilitiesUI(localizer) {
+        var gridSelector = "#gridLiabilities";
+        var gridContainer = "#gridLiabilitiesContainer";
+        var locLiabilities = localizer.get("Liabilities");
+
+        var uiLogic = new TransactionsTile({
+            localizer: localizer,
+            tileElement: "#tileLiabilities",
+            gridSelector: gridSelector,
+            chartSelector: "#chartLiabilities",
+            pieChartSelector: "#pieContainerLiabilities",
+            gridExpensesContainer: gridContainer,
+
+            btnGridChart: "#btnLGridChart",
+            btnControlsDown: "#btnLControlsDown",
+            btnControlsUp: "#btnLControlsUp",
+
+            periodButtons: "#periodSelButtonsL",
+            datePickers: "#datePickersL",
+            chartSeriesGroup: "#seriesTypeControlsL",
+
+            startDatePicker: "#startDatePickerL",
+            endDatePicker: "#endDatePickerL",
+
+            dataActionUrl: '@Url.Action("GetLiabilitiesData")',
+            viewModeBase: "chart",
+            chartSeriesType: "area",
+            baseContentPath: '@Url.Content("~/Content")',
+
+            categoryAxisLabel: "DateAcquired",
+            categorySeriesMember: "Value",
+            createSchema: createLiabilitiesSchema,
+            initGrid: initLiabilitiesGrid
+        });
+
+        this.layoutChanged = function (selectedLayout) {
+            uiLogic.layoutChanged(selectedLayout);
+        };
+
+        function createLiabilitiesSchema() {
+            var schema =
+                {
+                    fields: [
+                        { name: "Id" },
+                        { name: "Name" },
+                        { name: "DateAcquired", type: "date" },
+                        { name: "Value", type: "number" },
+                        { name: "Category" }
+                    ]
+                };
+            return schema;
+        }
+
+        function initLiabilitiesGrid(data) {
+            $(gridContainer).show();
+            $(gridSelector).igGrid({
+                width: "100%",
+                height: "100%",
+                autoGenerateColumns: false,
+                dataSource: data,
+                columns: [
+                    { headerText: locLiabilities.Category, key: "Category", dataType: "string" },
+                    { headerText: locLiabilities.Name, key: "Name", dataType: "string" },
+                    { headerText: locLiabilities.Date, key: "DateAcquired", dataType: "date" },
+                    { headerText: locLiabilities.Value, key: "Value", dataType: "number", format: "currency" }
+                ],
+                features: [
+                    {
+                        name: "Sorting",
+                        type: "local",
+                        columnSettings: [
+                            { columnKey: "Category", allowSorting: true, currentSortDirection: "asc" },
+                            { columnKey: "DateAcquired", allowSorting: true, currentSortDirection: "asc" }
+                        ]
+                    }, {
+                        name: "GroupBy",
+                        type: "local",
+                        initialExpand: true,
+                        groupByAreaVisibility: "hidden",
+                        columnSettings: [
+                            { columnKey: "Category", isGroupBy: true },
+                            { columnKey: "Value", summaries: [{ summaryFunction: "sum", text: "Total"}] }
+                        ]
+                    }
+                ]
+            });
+        }
+    }
+</script>
+
+<div class="tileHeading">
+<img src="@Url.Content("~/Content/images/SubHeaderCorner.png")" class="corner">
+    <div class="subHeading">
+        <span class="sprite-main sprite-liabilities"></span>
+        <label class="tileUIElement tileTitle" data-localize="Liabilities">Liabilities</label>
+
+        <a id="btnLGridChart" data-controls="changeView" class="tileUIElement rightAligned"><span class="sprite-main sprite-piechart-mode"></span></a>
+        <a id="btnLControlsDown"  data-controls="controlsDown" class="tileUIElement rightAligned"><span class="sprite-main sprite-arrow-down"></span></a>
+        <a id="btnLControlsUp"  data-controls="controlsUp" class="tileUIElement rightAligned"><span class="sprite-main sprite-arrow-up"></span></a>
+        <span id="periodSelButtonsL" class="rightAligned">
+            <a class="tileUIElement" data-period="day"><span class="sprite-main sprite-day"></span></a>
+            <a class="tileUIElement" data-period="week"><span class="sprite-main sprite-week"></span></a>
+            <a class="tileUIElement" data-period="month"><span class="sprite-main sprite-month"></span></a>
+            <a class="tileUIElement" data-period="quarter"><span class="sprite-main sprite-quarter"></span></a>
+            <a class="tileUIElement" data-period="year"><span class="sprite-main sprite-year"></span></a>
+        </span>
+        <span id="datePickersL" class="rightAligned">
+            <input id="startDatePickerL"  data-editorType="startDate"  type="text" />
+            <input id="endDatePickerL"  data-editorType="endDate"  type="text" />
+        </span>
+        <span id="seriesTypeControlsL" class="rightAligned">
+            <a class="tileUIElement" data-chartSeries="column"><span class="sprite-main sprite-columnchart"></span></a>
+            <a class="tileUIElement" data-chartSeries="line"><span class="sprite-main sprite-linechart"></span></a>
+            <a class="tileUIElement" data-chartSeries="spline"><span class="sprite-main sprite-splinechart"></span></a>
+            <a class="tileUIElement" data-chartSeries="area"><span class="sprite-main sprite-areachart"></span></a>
+            <a class="tileUIElement" data-chartSeries="splineArea"><span class="sprite-main sprite-splineareachart"></span></a>
+        </span>
+    </div>
+</div>
+<div class="tileContent">
+    <div id="gridLiabilitiesContainer" style="width: 100%; height: 100%" >
+        <table id="gridLiabilities"></table>
+    </div>
+    <div id="chartLiabilities" style="width: 100%; height: 100%" ></div>
+    <div id="pieContainerLiabilities" style="width: 100%; height: 100%"></div>
+</div>

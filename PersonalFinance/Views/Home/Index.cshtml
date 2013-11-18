@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Personal Finance Dashboard";
+}
+
+@if(false) { <script type="text/javascript" src="../../Scripts/jquery-1.6.4.js"></script> }
+                                                                                              
+@section Head {   
+    <link id="layoutLink" href='@Url.Content("~/Content/Layout3.css")' type="text/css" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/app/StateEngine.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/app/ControlManager.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/app/TransactionsTile.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/app/Localizer.js")" type="text/javascript"></script>
+    <!-- Load the language JS file calculated by the controller action method -->
+    <script src="@ViewBag.ResourceFile" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var expensesTile;
+        var incomeTile;
+        var assetsTile;
+        var liabilitiesTile;
+        var budgetTile;
+
+        //  Localization variables
+        //  resources is defined in the specific locale's JS file (for example, ja.js for Japanese ja locale)
+        var currentLanguage = "@ViewBag.Language";
+        var loc = new Localizer(resources);
+        var locIndex = loc.get("Index");    //  Cache the Index view localization items for performance and clarity
+        
+        $(function () {
+            self.setInterval('setTimestampLabel()', 1000);
+            $.ig.regional.defaults = $.extend($.ig.regional.defaults, $.ig.regional[currentLanguage]);
+            loc.localizeView("Index");
+
+            //  Enable styling of BlockUI elements by CSS
+            $.blockUI.defaults.css = { "z-index" : 0 };
+            $.blockUI.defaults.overlayCSS = { "z-index": 1 };
+            $("#infoDialog").prepend(locIndex["InfoDescription"]);
+            $("#infoDialog").igDialog({
+                state: "closed",
+                modal: true,
+                draggable: false,
+                resizable: false,
+                headerText: locIndex["InfoHeader"],
+                height: "350px",
+                width: "500px"
+            });
+            $("#info").on("click", function () {
+                //Initialize igDialig
+                $("#infoDialog").igDialog("open");
+            });
+            $("#barcode").igQRCodeBarcode({
+                height: "66px",
+                width: "66px",
+                errorCorrectionLevel: "low",
+                barsFillMode: "ensureEqualSize",
+                stretch: "none",
+                data: locIndex["ShowCaseUrl"]
+            });
+
+
+            $(document).delegate("#cbxLayout", "change", function () {
+                var selectedLayout = $(this).val();
+                var stylesheetUrl = '@Url.Content("~/Content/")' + selectedLayout + ".css";
+                $(".workArea .dashboardTile").block({ message: locIndex["PleaseWait"] });
+                //  Load the new stylesheet
+                $("#layoutLink").attr("href", stylesheetUrl);
+
+                //  Update tiles when the stylesheet is loaded
+                var dummyImg = document.createElement("img");
+                dummyImg.onerror = function () {
+                    expensesTile.layoutChanged(selectedLayout);
+                    incomeTile.layoutChanged(selectedLayout);
+                    netWorthTile.layoutChanged(selectedLayout);
+                    budgetTile.layoutChanged(selectedLayout);
+                    assetsTile.layoutChanged(selectedLayout);
+                    liabilitiesTile.layoutChanged(selectedLayout);
+                };
+                dummyImg.src = stylesheetUrl;
+            });
+
+            $(".workArea .dashboardTile").block({ message: locIndex["PleaseWait"] });
+
+            expensesTile = new ExpensesUI(loc);
+            loc.localizeView("Expenses");
+
+            incomeTile = new IncomeUI(loc);
+            loc.localizeView("Income");
+
+            netWorthTile = new NetWorthUI(loc);
+            loc.localizeView("NetWorth");
+
+            budgetTile = new BudgetUI(loc);
+            loc.localizeView("BudgetTracking");
+
+            assetsTile = new AssetsUI(loc);
+            loc.localizeView("Assets");
+
+            liabilitiesTile = new LiabilitiesUI(loc);
+            loc.localizeView("Liabilities");
+        });
+
+        function setTimestampLabel() {
+            $("#labelTimestamp").html(" - " + loc.longDateFormat(new Date()));
+        }
+        function setVersionInformation() {
+            var assemblyVersion = '@(ViewBag.DllVersion)';
+                    var igScriptsVersion = $.ui.igGrid.version;
+                    var res = $("<span id='assemblyVersion'>" + assemblyVersion + "</span><br/><span id='igScriptsVersion'>" + igScriptsVersion + "</span>");
+                    $("#versionInfo").html(res);
+                }
+        $(document).ready(function () {
+            setVersionInformation();
+
+
+        });
+
+
+    </script>
+}
+
+@section Body {
+<div class="header_fullwidth"></div>
+<style></style>
+<div class="container">
+    <div class="row header">
+        <div id="appBar" class="appBar span12">
+        <span class="sprite-logo"></span>
+            <span class="appBarItemPosition appBarHeading" data-localize="appTitle">Personal Finance</span>
+            <span id="labelTimestamp" class="appBarItemPosition appBarText"></span>
+            <span id="info" class="appBarItemPosition appBarText">Info</span>
+            <span class="rightAligned rightAlignedFix">
+                <select id="cbxLayout">
+                    <option value="Layout3" data-localize="NetWorthView">Net Worth View</option>
+                    <option value="Layout1" data-localize="MainView">Main View</option>
+                    <option value="Layout2" data-localize="AssetsLiabilitiesView">Assets/Liabilities View</option>
+                </select>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="workArea span12">
+            <div id="tileExpenses" class="dashboardTile">
+                @{Html.RenderPartial("Expenses");}
+            </div>
+            <div id="tileIncome" class="dashboardTile">
+                @{Html.RenderPartial("Income");}
+            </div>
+            <div id="tileNetWorth" class="dashboardTile">
+                @{Html.RenderPartial("NetWorth");}
+            </div>
+            <div id="tileBudget" class="dashboardTile">
+                @{Html.RenderPartial("BudgetTracking");}
+            </div>
+            <div id="tileAssets" class="dashboardTile">
+                @{Html.RenderPartial("Assets");}
+            </div>
+            <div id="tileLiabilities" class="dashboardTile">
+                @{Html.RenderPartial("Liabilities");}
+            </div>
+        </div>
+    </div>
+</div>
+     <div id="versionInfo" style="display:none"></div>
+    <div id="infoDialog" data-localize="appInfo">
+        <h4 id="controlsUsed" data-localize="controlsUsed">Controls Used:</h4>
+        <span class="dialog-sprite ds-grid"></span><span class="control-title">Grid</span>
+        <span class="dialog-sprite ds-chart"></span><span class="control-title">Data Chart</span>
+        <span class="dialog-sprite ds-combo"></span><span class="control-title">Combo</span>
+        <div class="dialog-dl-qr-wrap">
+            <a href="#" class="dialog-download">Download Source Code<span>&nbsp;</span></a>
+            <span id="barcode"></span><span class="dialog-qr">Scan to view on your mobile device!</span>
+        </div>
+        <div class="ignite-ui-about"><img src="@Url.Content("~/Content/images/igniteui.png")" /></div>
+        <div class="infragistics-about"><img src="@Url.Content("~/Content/images/infragistics.png")" /></div>
+	</div>
+}

@@ -1,0 +1,106 @@
+﻿<script type="text/javascript">
+    function BudgetUI(localizer) {
+        var thisTile = this;
+
+        var tileElement = "#tileBudget";
+        var chartSelector = "#budgetChart";
+        var dataActionUrl = '@Url.Action("GetBudgetTrackingData")';
+        var locBudget = localizer.get("BudgetTracking");
+
+        this.dataSource = null;
+
+        //  Initialize UI        
+        initChart();
+        updateData();
+
+        this.layoutChanged = function (selectedLayout) {
+            $(chartSelector).igDataChart("option", "width", $(tileElement + " .tileContent").css("width"));
+            $(chartSelector).igDataChart("option", "height", $(tileElement + " .tileContent").css("height"));
+            $(tileElement).unblock();
+        };
+
+        function updateData() {
+            $.post(dataActionUrl).success(budgetDataReceived);
+
+            function budgetDataReceived(data, textStatus, jqXHR) {
+                var dataSource = new $.ig.DataSource({
+                    type: "json",
+                    dataSource: data,
+                    schema: {
+                        fields: [
+                            { name: "Category" },
+                            { name: "Budget", type: "number" },
+                            { name: "Spent", type: "number" }
+                        ]
+                    }
+                });
+
+                thisTile.dataSource = dataSource;
+                dataSource.dataBind();
+                updateChart(dataSource);
+
+                $(tileElement).unblock();
+            }
+        }
+
+        function initChart() {
+            $(chartSelector).igDataChart({
+                width: $(tileElement + " .tileContent").css("width"),
+                height: $(tileElement + " .tileContent").css("height"),
+                dataSource: [],
+                axes: [
+                    {
+                        name: "xAxis",
+                        type: "categoryX",
+                        label: "Category"
+                    }, {
+                        name: "yAxis",
+                        type: "numericY"
+                    }
+                ],
+                series: [
+                    {
+                        name: "Budget",
+                        type: "column",
+                        title: locBudget.BudgetSeries,
+                        xAxis: "xAxis",
+                        yAxis: "yAxis",
+                        valueMemberPath: "Budget"
+                    }, {
+                        name: "Spending",
+                        type: "column",
+                        title: locBudget.Spending,
+                        xAxis: "xAxis",
+                        yAxis: "yAxis",
+                        valueMemberPath: "Spent"
+                    }
+                ],
+                legend: {
+                    element: "budgetLegend",
+                    width: "150px"
+                },
+                leftMargin: 5,
+                topMargin: 10,
+                horizontalZoomable: false,
+                verticalZoomable: false,
+                windowResponse: "immediate"
+            });
+        }
+
+        function updateChart(dataSource) {
+            $(chartSelector).igDataChart("option", "dataSource", dataSource);
+        }
+    }
+</script>
+
+<div class="tileHeading">
+<img src="@Url.Content("~/Content/images/SubHeaderCorner.png")" class="corner">
+    <div class="subHeading">
+        <span class="sprite-main sprite-budget"></span>
+        <label class="tileUIElement tileTitle" data-localize="Budget">Budget</label>
+    </div>
+</div>
+<div class="tileContent">
+    <div id="budgetChart"></div>
+    <div id="budgetLegend"></div>
+</div>

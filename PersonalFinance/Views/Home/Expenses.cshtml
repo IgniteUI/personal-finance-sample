@@ -1,0 +1,68 @@
+﻿<script type="text/javascript">
+    function ExpensesUI(localizer) {
+        var uiLogic = new TransactionsTile({
+            localizer: localizer,
+            tileElement: "#tileExpenses",
+            gridSelector: "#gridExpenses",
+            chartSelector: "#chartExpenses",
+            pieChartSelector: "#pieContainerExpenses",
+            gridExpensesContainer: "#gridExpensesContainer",
+
+            btnGridChart: "#btnEGridChart",
+            btnControlsDown: "#btnEControlsDown",
+            btnControlsUp: "#btnEControlsUp",
+
+            periodButtons: "#periodSelButtons",
+            datePickers: "#periodSelControls",
+            chartSeriesGroup: "#seriesTypeControls",
+
+            startDatePicker: "#startDatePicker",
+            endDatePicker: "#endDatePicker",
+
+            dataActionUrl: '@Url.Action("GetExpensesData")',
+            chartSeriesType: "splineArea",
+            baseContentPath: '@Url.Content("~/Content")'
+        });
+
+        this.layoutChanged = function (selectedLayout) {
+            uiLogic.layoutChanged(selectedLayout);
+        };
+    }
+</script>
+
+<div class="tileHeading">
+<img src="@Url.Content("~/Content/images/SubHeaderCorner.png")" class="corner">
+    <div class="subHeading">
+        <span class="sprite-main sprite-expenses"></span>
+        <label class="tileUIElement tileTitle" data-localize="Expenses">Expenses</label>
+
+        <a id="btnEGridChart" data-controls="changeView"  class="tileUIElement rightAligned"><span class="sprite-main sprite-piechart-mode"></span></a>
+        <a id="btnEControlsDown" data-controls="controlsDown" class="tileUIElement rightAligned"><span class="sprite-main sprite-arrow-down"></span></a>
+        <a id="btnEControlsUp" data-controls="controlsUp" class="tileUIElement rightAligned"><span class="sprite-main sprite-arrow-up"></span></a>
+        <span id="periodSelButtons" class="rightAligned">
+            <a class="tileUIElement" data-period="day"><span class="sprite-main sprite-day"></span></a>
+            <a class="tileUIElement" data-period="week"><span class="sprite-main sprite-week"></span></a>
+            <a class="tileUIElement" data-period="month"><span class="sprite-main sprite-month"></span></a>
+            <a class="tileUIElement" data-period="quarter"><span class="sprite-main sprite-quarter"></span></a>
+            <a class="tileUIElement" data-period="year"><span class="sprite-main sprite-year"></span></a>
+        </span>
+        <span id="periodSelControls" class="rightAligned">
+            <input id="startDatePicker" data-editorType="startDate"  type="text" />
+            <input id="endDatePicker" data-editorType="endDate" type="text" />
+        </span>
+        <span id="seriesTypeControls" class="rightAligned">
+            <a class="tileUIElement btnChartMode" data-chartSeries="column"><span class="sprite-main sprite-columnchart"></span></a>
+            <a class="tileUIElement btnChartMode" data-chartSeries="line"><span class="sprite-main sprite-linechart"></span></a>
+            <a class="tileUIElement btnChartMode" data-chartSeries="spline"><span class="sprite-main sprite-splinechart"></span></a>
+            <a class="tileUIElement" data-chartSeries="area"><span class="sprite-main sprite-areachart"></span></a>
+            <a class="tileUIElement" data-chartSeries="splineArea"><span class="sprite-main sprite-splineareachart"></span></a>
+        </span>
+    </div>
+</div>
+<div class="tileContent">
+        <div id="gridExpensesContainer"  style="width: 100%; height: 100%" >
+            <table id="gridExpenses"></table>
+        </div>
+    <div id="chartExpenses" style="width: 100%; height: 100%" ></div>
+    <div id="pieContainerExpenses" style="width: 100%; height: 100%"></div>
+</div>

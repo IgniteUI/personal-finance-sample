@@ -1,0 +1,125 @@
+﻿<script type="text/javascript">
+    function AssetsUI(localizer) {
+        var gridSelector = "#gridAssets";
+        var gridAssetsContainer = "#gridAssetsContainer";
+        var locAssets = localizer.get("Assets");
+
+        var uiLogic = new TransactionsTile({
+            localizer: localizer,
+            tileElement: "#tileAssets",
+            gridSelector: gridSelector,
+            chartSelector: "#chartAssets",
+            pieChartSelector: "#pieContainerAssets",
+            gridExpensesContainer: gridAssetsContainer,
+
+            btnGridChart: "#btnAGridChart",
+            btnControlsDown: "#btnAControlsDown",
+            btnControlsUp: "#btnAControlsUp",
+
+            periodButtons: "#periodSelButtonsA",
+            datePickers: "#datePickersA",
+            chartSeriesGroup: "#seriesTypeControlsA",
+
+            startDatePicker: "#startDatePickerA",
+            endDatePicker: "#endDatePickerA",
+
+            dataActionUrl: '@Url.Action("GetAssetsData")',
+            chartSeriesType: "column",
+            baseContentPath: '@Url.Content("~/Content")',
+
+            categoryAxisLabel: "DateAcquired",
+            categorySeriesMember: "Value",
+            createSchema: createAssetsSchema,
+            initGrid: initAssetsGrid
+        });
+
+        this.layoutChanged = function (selectedLayout) {
+            uiLogic.layoutChanged(selectedLayout);
+        };
+
+        function createAssetsSchema() {
+            var schema =
+                {
+                    fields: [
+                        { name: "Id" },
+                        { name: "Name" },
+                        { name: "DateAcquired", type: "date" },
+                        { name: "Value", type: "number" },
+                        { name: "Category" }
+                    ]
+                };
+            return schema;
+        }
+
+        function initAssetsGrid(data) {
+            $(gridAssetsContainer).show();
+            $(gridSelector).igGrid({
+                width: "100%",
+                height: "100%",
+                autoGenerateColumns: false,
+                dataSource: data,
+                columns: [
+                    { headerText: locAssets.Category, key: "Category", dataType: "string" },
+                    { headerText: locAssets.Name, key: "Name", dataType: "string" },
+                    { headerText: locAssets.Date, key: "DateAcquired", dataType: "date" },
+                    { headerText: locAssets.Value, key: "Value", dataType: "number", format: "currency" }
+                ],
+                features: [
+                    {
+                        name: "Sorting",
+                        type: "local",
+                        columnSettings: [
+                            { columnKey: "Category", allowSorting: true, currentSortDirection: "asc" },
+                            { columnKey: "DateAcquired", allowSorting: true, currentSortDirection: "asc" }
+                        ]
+                    }, {
+                        name: "GroupBy",
+                        type: "local",
+                        initialExpand: true,
+                        groupByAreaVisibility: "hidden",
+                        columnSettings: [
+                            { columnKey: "Category", isGroupBy: true },
+                            { columnKey: "Value", summaries: [{ summaryFunction: "sum", text: "Total"}] }
+                        ]
+                    }
+                ]
+            });
+        }
+    }
+</script>
+<div class="tileHeading">
+    <img src="@Url.Content("~/Content/images/SubHeaderCorner.png")" class="corner">
+    <div class="subHeading">
+        <span class="sprite-main sprite-assets"></span>
+        <label class="tileUIElement tileTitle" data-localize="Assets">Assets</label>
+
+        <a id="btnAGridChart" data-controls="changeView" class="tileUIElement rightAligned"><span class="sprite-main sprite-piechart-mode"></span></a>
+        <a id="btnAControlsDown"  data-controls="controlsDown" class="tileUIElement rightAligned"><span class="sprite-main sprite-arrow-down"></span></a>
+        <a id="btnAControlsUp"  data-controls="controlsUp" class="tileUIElement rightAligned"><span class="sprite-main sprite-arrow-up"></a>
+        <span id="periodSelButtonsA" class="rightAligned">
+            <a class="tileUIElement" data-period="day"><span class="sprite-main sprite-day"></span></a>
+            <a class="tileUIElement" data-period="week"><span class="sprite-main sprite-week"></span></a>
+            <a class="tileUIElement" data-period="month"><span class="sprite-main sprite-month"></span></a>
+            <a class="tileUIElement" data-period="quarter"><span class="sprite-main sprite-quarter"></span></a>
+            <a class="tileUIElement" data-period="year"><span class="sprite-main sprite-year"></span></a>
+        </span>
+        <span id="datePickersA" class="rightAligned">
+            <input id="startDatePickerA"  data-editorType="startDate"  type="text" />
+            <input id="endDatePickerA"  data-editorType="endDate"  type="text" />
+        </span>
+        <span id="seriesTypeControlsA" class="rightAligned">
+            <a class="tileUIElement" data-chartSeries="column"><span class="sprite-main sprite-columnchart"></span></a>
+            <a class="tileUIElement" data-chartSeries="line"><span class="sprite-main sprite-linechart"></span></a>
+            <a class="tileUIElement" data-chartSeries="spline"><span class="sprite-main sprite-splinechart"></span></a>
+            <a class="tileUIElement" data-chartSeries="area"><span class="sprite-main sprite-areachart"></span></a>
+            <a class="tileUIElement" data-chartSeries="splineArea"><span class="sprite-main sprite-splineareachart"></span></a>
+        </span>
+    </div>
+</div>
+<div class="tileContent">
+    <div id="gridAssetsContainer" style="width: 100%; height: 100%">
+        <table id="gridAssets"></table>
+    </div>
+    <div id="chartAssets" style="width: 100%; height: 100%" ></div>
+    <div id="pieContainerAssets" style="width: 100%; height: 100%"></div>
+</div>

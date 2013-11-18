@@ -1,0 +1,5 @@
+E:\Work\4\540\bin\Release\ShowSamples\PersonalFinance.dll
+E:\Work\4\540\bin\Release\ShowSamples\PersonalFinance.pdb
+E:\Work\4\540\src\DEV\jQuery\2013.2\Samples\Showcases\PersonalFinance\PersonalFinance\obj\Release\PersonalFinance.csprojResolveAssemblyReference.cache
+E:\Work\4\540\src\DEV\jQuery\2013.2\Samples\Showcases\PersonalFinance\PersonalFinance\obj\Release\PersonalFinance.dll
+E:\Work\4\540\src\DEV\jQuery\2013.2\Samples\Showcases\PersonalFinance\PersonalFinance\obj\Release\PersonalFinance.pdb

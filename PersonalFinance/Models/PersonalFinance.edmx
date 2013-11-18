@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PersonalFinance.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PersonalFinanceStoreContainer">
+          <EntitySet Name="Categories" EntityType="PersonalFinance.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CategoryTypes" EntityType="PersonalFinance.Store.CategoryTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Items" EntityType="PersonalFinance.Store.Items" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Partners" EntityType="PersonalFinance.Store.Partners" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Transactions" EntityType="PersonalFinance.Store.Transactions" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CategoriesTransactions" Association="PersonalFinance.Store.FK_CategoriesTransactions">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryTypesCategories" Association="PersonalFinance.Store.FK_CategoryTypesCategories">
+            <End Role="CategoryTypes" EntitySet="CategoryTypes" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Items_Categories" Association="PersonalFinance.Store.FK_Items_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PartnersTransactions" Association="PersonalFinance.Store.FK_PartnersTransactions">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" />
+          <Property Name="CategoryTypesId" Type="int" Nullable="false" />
+          <Property Name="Budget" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="CategoryTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" />
+          <Property Name="IsCredit" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Value" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="DateAcquired" Type="datetime" Nullable="false" />
+          <Property Name="DateRemoved" Type="datetime" />
+          <Property Name="CategoriesId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" />
+          <Property Name="GeoLatitude" Type="float" />
+          <Property Name="GeoLongitude" Type="float" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="CategoriesId" Type="int" Nullable="false" />
+          <Property Name="PartnersId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CategoriesTransactions">
+          <End Role="Categories" Type="PersonalFinance.Store.Categories" Multiplicity="1" />
+          <End Role="Transactions" Type="PersonalFinance.Store.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="CategoriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryTypesCategories">
+          <End Role="CategoryTypes" Type="PersonalFinance.Store.CategoryTypes" Multiplicity="1" />
+          <End Role="Categories" Type="PersonalFinance.Store.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="CategoryTypesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Items_Categories">
+          <End Role="Categories" Type="PersonalFinance.Store.Categories" Multiplicity="1" />
+          <End Role="Items" Type="PersonalFinance.Store.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="CategoriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PartnersTransactions">
+          <End Role="Partners" Type="PersonalFinance.Store.Partners" Multiplicity="1" />
+          <End Role="Transactions" Type="PersonalFinance.Store.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="PartnersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PersonalFinance" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="PersonalFinanceContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="PersonalFinance.Categories" />
+          <EntitySet Name="CategoryTypes" EntityType="PersonalFinance.CategoryTypes" />
+          <AssociationSet Name="CategoryTypesCategories" Association="PersonalFinance.CategoryTypesCategories">
+            <End Role="CategoryTypes" EntitySet="CategoryTypes" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <EntitySet Name="Transactions" EntityType="PersonalFinance.Transactions" />
+          <AssociationSet Name="CategoriesTransactions" Association="PersonalFinance.CategoriesTransactions">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Partners" EntityType="PersonalFinance.Partners" />
+          <AssociationSet Name="PartnersTransactions" Association="PersonalFinance.PartnersTransactions">
+            <End Role="Partners" EntitySet="Partners" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Items" EntityType="PersonalFinance.Item" />
+          <AssociationSet Name="FK_Items_Categories" Association="PersonalFinance.FK_Items_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Item" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="CategoryType" Relationship="PersonalFinance.CategoryTypesCategories" FromRole="Categories" ToRole="CategoryTypes" />
+          <Property Type="Int32" Name="CategoryTypesId" Nullable="false" />
+          <NavigationProperty Name="Transactions" Relationship="PersonalFinance.CategoriesTransactions" FromRole="Categories" ToRole="Transactions" />
+          <NavigationProperty Name="Items" Relationship="PersonalFinance.FK_Items_Categories" FromRole="Categories" ToRole="Item" />
+          <Property Type="Decimal" Name="Budget" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="CategoryTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="PersonalFinance.CategoryTypesCategories" FromRole="CategoryTypes" ToRole="Categories" />
+          <Property Type="Boolean" Name="IsCredit" Nullable="false" />
+        </EntityType>
+        <Association Name="CategoryTypesCategories">
+          <End Type="PersonalFinance.CategoryTypes" Role="CategoryTypes" Multiplicity="1" />
+          <End Type="PersonalFinance.Categories" Role="Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="CategoryTypesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="PersonalFinance.CategoriesTransactions" FromRole="Transactions" ToRole="Categories" />
+          <Property Type="Int32" Name="CategoriesId" Nullable="false" />
+          <NavigationProperty Name="Partner" Relationship="PersonalFinance.PartnersTransactions" FromRole="Transactions" ToRole="Partners" />
+          <Property Type="Int32" Name="PartnersId" Nullable="false" />
+        </EntityType>
+        <Association Name="CategoriesTransactions">
+          <End Type="PersonalFinance.Categories" Role="Categories" Multiplicity="1" />
+          <End Type="PersonalFinance.Transactions" Role="Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="CategoriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Partners">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="Double" Name="GeoLatitude" Nullable="true" />
+          <Property Type="Double" Name="GeoLongitude" Nullable="true" />
+          <NavigationProperty Name="Transactions" Relationship="PersonalFinance.PartnersTransactions" FromRole="Partners" ToRole="Transactions" />
+        </EntityType>
+        <Association Name="PartnersTransactions">
+          <End Type="PersonalFinance.Partners" Role="Partners" Multiplicity="1" />
+          <End Type="PersonalFinance.Transactions" Role="Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Partners">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="PartnersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Value" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="DateAcquired" Nullable="false" />
+          <Property Type="DateTime" Name="DateRemoved" />
+          <Property Type="Int32" Name="CategoriesId" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="PersonalFinance.FK_Items_Categories" FromRole="Item" ToRole="Categories" />
+        </EntityType>
+        <Association Name="FK_Items_Categories">
+          <End Type="PersonalFinance.Categories" Role="Categories" Multiplicity="1" />
+          <End Type="PersonalFinance.Item" Role="Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Item">
+              <PropertyRef Name="CategoriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PersonalFinanceStoreContainer" CdmEntityContainer="PersonalFinanceContainer">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="IsTypeOf(PersonalFinance.Categories)">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryTypesId" ColumnName="CategoryTypesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(PersonalFinance.CategoryTypes)">
+        <MappingFragment StoreEntitySet="CategoryTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsCredit" ColumnName="IsCredit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="IsTypeOf(PersonalFinance.Transactions)">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CategoriesId" ColumnName="CategoriesId" />
+          <ScalarProperty Name="PartnersId" ColumnName="PartnersId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="IsTypeOf(PersonalFinance.Partners)">
+        <MappingFragment StoreEntitySet="Partners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="GeoLatitude" ColumnName="GeoLatitude" />
+          <ScalarProperty Name="GeoLongitude" ColumnName="GeoLongitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="PersonalFinance.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="CategoriesId" ColumnName="CategoriesId" />
+                <ScalarProperty Name="DateRemoved" ColumnName="DateRemoved" />
+                <ScalarProperty Name="DateAcquired" ColumnName="DateAcquired" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DatabaseGenerationWorkflow" Value="$(VSEFTools)\DBGen\TablePerTypeStrategy.xaml" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model1" >
+        <EntityTypeShape EntityType="PersonalFinance.Categories" Width="1.5" PointX="3.625" PointY="1.125" Height="1.4033821614583331" />
+        <EntityTypeShape EntityType="PersonalFinance.CategoryTypes" Width="1.5" PointX="1.375" PointY="1.125" Height="1.787985026041667" />
+        <AssociationConnector Association="PersonalFinance.CategoryTypesCategories">
+          <ConnectorPoint PointX="2.875" PointY="2.0189925130208337" />
+          <ConnectorPoint PointX="3.625" PointY="2.0189925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PersonalFinance.Transactions" Width="1.5" PointX="5.875" PointY="1.125" Height="1.59568359375" />
+        <AssociationConnector Association="PersonalFinance.CategoriesTransactions">
+          <ConnectorPoint PointX="5.125" PointY="2.3074446614583328" />
+          <ConnectorPoint PointX="5.875" PointY="2.3074446614583328" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PersonalFinance.Partners" Width="1.5" PointX="8.5" PointY="1.125" Height="2.1725878906249996" />
+        <AssociationConnector Association="PersonalFinance.PartnersTransactions">
+          <ConnectorPoint PointX="8.5" PointY="2.2112939453125" />
+          <ConnectorPoint PointX="7.375" PointY="2.2112939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PersonalFinance.Item" Width="1.5" PointX="5.875" PointY="4.125" Height="2.3648893229166674" />
+        <AssociationConnector Association="PersonalFinance.FK_Items_Categories" >
+          <ConnectorPoint PointX="4.7812525" PointY="3.489889322916667" />
+          <ConnectorPoint PointX="4.7812525" PointY="5.7544409179687506" />
+          <ConnectorPoint PointX="5.875" PointY="5.7544409179687506" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

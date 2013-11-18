@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PersonalFinance.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PersonalFinanceStoreContainer">
+    <EntitySet Name="Categories" EntityType="PersonalFinance.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryTypes" EntityType="PersonalFinance.Store.CategoryTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Items" EntityType="PersonalFinance.Store.Items" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Partners" EntityType="PersonalFinance.Store.Partners" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Transactions" EntityType="PersonalFinance.Store.Transactions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CategoriesTransactions" Association="PersonalFinance.Store.FK_CategoriesTransactions">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryTypesCategories" Association="PersonalFinance.Store.FK_CategoryTypesCategories">
+      <End Role="CategoryTypes" EntitySet="CategoryTypes" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Items_Categories" Association="PersonalFinance.Store.FK_Items_Categories">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PartnersTransactions" Association="PersonalFinance.Store.FK_PartnersTransactions">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="CategoryTypesId" Type="int" Nullable="false" />
+    <Property Name="Budget" Type="decimal" Scale="2" />
+  </EntityType>
+  <EntityType Name="CategoryTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="IsCredit" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="DateAcquired" Type="datetime" Nullable="false" />
+    <Property Name="DateRemoved" Type="datetime" />
+    <Property Name="CategoriesId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" />
+    <Property Name="GeoLatitude" Type="float" />
+    <Property Name="GeoLongitude" Type="float" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="CategoriesId" Type="int" Nullable="false" />
+    <Property Name="PartnersId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CategoriesTransactions">
+    <End Role="Categories" Type="PersonalFinance.Store.Categories" Multiplicity="1" />
+    <End Role="Transactions" Type="PersonalFinance.Store.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="CategoriesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryTypesCategories">
+    <End Role="CategoryTypes" Type="PersonalFinance.Store.CategoryTypes" Multiplicity="1" />
+    <End Role="Categories" Type="PersonalFinance.Store.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoryTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="CategoryTypesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Items_Categories">
+    <End Role="Categories" Type="PersonalFinance.Store.Categories" Multiplicity="1" />
+    <End Role="Items" Type="PersonalFinance.Store.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="CategoriesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PartnersTransactions">
+    <End Role="Partners" Type="PersonalFinance.Store.Partners" Multiplicity="1" />
+    <End Role="Transactions" Type="PersonalFinance.Store.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="PartnersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

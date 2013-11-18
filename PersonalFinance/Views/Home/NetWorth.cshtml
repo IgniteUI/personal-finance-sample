@@ -1,0 +1,129 @@
+﻿<script type="text/javascript">
+    function NetWorthUI(localizer) {
+        var thisTile = this;
+        var locNetWorth = localizer.get("NetWorth");
+
+        var tileElement = "#tileNetWorth";
+        var chartSelector = "#netWorthChart";
+        var dataActionUrl = '@Url.Action("GetNetWorthData")';
+
+        this.dataSource = null;
+
+        //  Initialize UI
+            initChart();
+            updateData();
+
+        this.layoutChanged = function (selectedLayout) {
+            $(chartSelector).igDataChart({
+                width: $(tileElement + " .tileContent").css("width"),
+                height: $(tileElement + " .tileContent").css("height")
+            });
+            $(tileElement).unblock();
+        };
+
+        function updateData() {
+            $.post(dataActionUrl).success(dataReceived);
+
+            function dataReceived(data, textStatus, jqXHR) {
+                var dataSource = new $.ig.DataSource({
+                    type: "json",
+                    dataSource: data,
+                    schema: {
+                        fields: [
+                            { name: "Date", type: "date" },
+                            { name: "Assets", type: "number" },
+                            { name: "Liabilities", type: "number" },
+                            { name: "NetWorth", type: "number" }
+                        ]
+                    }
+                });
+
+                thisTile.dataSource = dataSource;
+                dataSource.dataBind();
+                updateChart(dataSource);
+
+                $(tileElement).unblock();
+            }
+        }
+
+        function initChart() {
+            $(chartSelector).igDataChart({
+                width: $(tileElement + " .tileContent").css("width"),
+                height: $(tileElement + " .tileContent").css("height"),
+                dataSource: [],
+                axes: [
+                    {
+                        name: "xAxis",
+                        type: "categoryX",
+                        label: "Date",
+                        labelExtent: 45,
+                        title: $.ig.formatter(getPreviousYear(), "date", "yyyy") + "/" + $.ig.formatter(new Date(), "date", "yyyy"),
+                        formatLabel: function (item) {
+                            return loc.onlyMonthDayFormat(item.Date);
+                        }
+                    }, {
+                        name: "yAxis",
+                        type: "numericY"
+                    }
+                ],
+                series: [
+                    {
+                        name: "NetWorth",
+                        type: "spline",
+                        title: locNetWorth.NetWorthSeries,
+                        xAxis: "xAxis",
+                        yAxis: "yAxis",
+                        valueMemberPath: "NetWorth"
+                    }, {
+                        name: "Assets",
+                        type: "spline",
+                        title: locNetWorth.AssetsSeries,
+                        xAxis: "xAxis",
+                        yAxis: "yAxis",
+                        valueMemberPath: "Assets"
+                    }, {
+                        name: "Liabilities",
+                        type: "spline",
+                        title: locNetWorth.LiabilitiesSeries,
+                        xAxis: "xAxis",
+                        yAxis: "yAxis",
+                        valueMemberPath: "Liabilities"
+                    }
+                ],
+                legend: {
+                    element: "netWorthLegend",
+                    width: "150px"
+                },
+                leftMargin: 5,
+                topMargin: 10,
+                horizontalZoomable: false,
+                verticalZoomable: false,
+                windowResponse: "immediate"
+            });
+        }
+
+        function getPreviousYear() {
+            //create the date
+            var d = new Date();
+            //subtract a year to the date
+            d.setFullYear(d.getFullYear() - 1);
+
+            return d;
+        }
+        function updateChart(dataSource) {
+            $(chartSelector).igDataChart("option", "dataSource", dataSource);
+        }
+    }
+</script>                                                                                          
+
+<div class="tileHeading">
+<img src="@Url.Content("~/Content/images/SubHeaderCorner.png")" class="corner">
+    <div class="subHeading">
+        <span class="sprite-main sprite-networth"></span>
+        <label class="tileUIElement tileTitle" data-localize="NetWorth">Net Worth</label>
+    </div>
+</div>
+<div class="tileContent">
+    <div id="netWorthChart"></div>
+    <div id="netWorthLegend"></div>
+</div>

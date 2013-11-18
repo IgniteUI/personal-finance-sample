@@ -1,0 +1,28 @@
+﻿#tileExpenses
+{
+}
+ 
+#tileIncome
+{
+    margin-left: 20px;
+}
+        
+#tileNetWorth
+{
+    width: 940px;
+}
+
+#tileBudget
+{
+    display: none;
+}
+        
+#tileAssets
+{
+    display: none;
+}
+
+#tileLiabilities
+{
+    display: none;
+}

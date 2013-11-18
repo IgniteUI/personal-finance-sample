@@ -1,0 +1,415 @@
+﻿/*
+    Styles for the main UI elements PERSONAL FINANCE
+*/
+body 
+{
+    background-color: #FFFFFF;
+}
+
+a:focus {
+     outline: none;
+}
+
+.workArea
+{
+    height: 590px; 
+    margin-top:10px;
+}
+
+.appBar 
+{
+    height: 30px;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+    margin-top:10px;
+}
+
+.dashboardTile  
+{
+    position: relative;
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#EEE));
+    background-repeat: repeat-x;
+    float: left; 
+    width: 460px;
+    height: 275px;     
+    margin-bottom:20px;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+    border:1px solid #D5D5D5;
+}
+
+.header_fullwidth {
+    width: 100%; 
+    height: 55px; 
+    background-color: #333333; 
+    position: absolute;
+}
+    
+/*
+    Main tile elements
+*/    
+.tileHeading 
+{
+    height: 54px;
+    overflow: hidden;
+}
+ 
+.subHeading {
+    width: 100%;
+    height:41px;
+    margin-top: 5px;
+    border-top: 1px solid #d5d5d5;
+    background: url('images/SubHeaderBG.png') #FFFFFF repeat-x;
+    background-position: bottom;
+}
+
+.subHeadingIcon {
+    position: relative;
+    float: left;
+    top:7px;
+    left:7px;
+}
+
+
+.tileContent
+{
+    height: 76%;
+    width: 96%;
+    margin: 0 2%;
+    position: relative
+}
+
+.tileTitle
+{
+    padding: 1px 0 0 2px;
+    font-size: 1.2em;
+    font-weight: bold;
+    float: left;
+    line-height:2.2em;
+}
+
+.tileUIElement
+{
+    display: inline-block;
+}
+.tileHeading a:hover
+{
+    background-color: #DDD;
+}
+
+.pieChart
+{
+    position: relative;
+    float: left;
+}
+
+.pieChartLegend
+{
+    position: relative;
+    float: right;
+}
+/*
+    Main application bar elements
+*/
+.appBar p 
+{
+    margin:0;
+    line-height:2em;
+    float:left;
+}
+
+.appBarItemPosition
+{
+    position: relative;
+    top: 12px;
+    left: 5px;
+}
+
+.appBarHeading
+{
+    font-weight:bold;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.rightAligned 
+{
+    position: relative;
+    float: right;
+    margin: 2px 6px 10px 6px;
+}
+
+.rightAlignedFix
+{
+    margin-right: 12px;
+}
+
+/* Budget tile specific styles */
+#budgetLegend
+{
+    position: absolute;
+    top: 15px;
+    left: 42px;
+}
+
+#netWorthLegend {
+    position: absolute;
+    top: 15px;
+    left: 46px;
+}
+
+/*
+    Style classes for  BlockUI visible elements
+*/
+.blockMsg
+{
+    font-size: larger;
+    font-style: italic;
+    font-weight:bolder;
+    color: #999999;
+    background-color:#2C2C2C;
+    background-image: -moz-linear-gradient(center top , #222, #333);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#222), to(#333));
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.25) inset;
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    padding:1em;
+    
+}
+
+.blockElement
+{
+    cursor: auto;
+}
+
+.blockOverlay
+{
+    cursor: auto;
+    background-color: #000;
+	opacity: 0.6;
+}
+
+.corner {
+    position: absolute;
+    top: 5px;
+    left:-7px;
+}
+
+.header {
+    background-color: #333333;
+    color:#FFF;
+    padding-bottom: 15px;
+}
+
+.header img {
+    position: relative;
+    float:left;
+    top:8px;
+    left:3px;
+}
+
+#labelTimestamp {
+    font-style: italic;
+    margin-left: 4px;
+    font-size: 13px;
+}
+
+/* Sprite */ 
+
+.sprite-main {
+    background-image: url('images/ui-sprite.png');
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.sprite-day               {background-position: -32px -352px;}
+.sprite-week              {background-position: -32px -288px;}
+.sprite-month             {background-position: -32px -320px;}
+.sprite-quarter           {background-position: 0px -320px;}
+.sprite-year              {background-position: 0px -288px;}
+
+.sprite-arrow-up          {background-position: -32px -192px;}
+.sprite-arrow-down        {background-position: 0px -192px;}
+
+.sprite-grid-mode         {background-position: 0px -256px;}
+.sprite-piechart-mode     {background-position: 0px -224px;}
+.sprite-chart-mode        {background-position: -32px -224px;}
+
+.sprite-columnchart       {background-position: -32px 0px;}
+.sprite-areachart         {background-position: 0px 0px;}
+.sprite-linechart         {background-position: 0px -32px;}
+.sprite-splineareachart   {background-position: -32px -32px}
+.sprite-splinechart       {background-position: 0px -64px;}
+
+.sprite-assets            {background-position: -32px -96px; float: left;} 
+.sprite-networth          {background-position: 0px -96px; float: left;}
+.sprite-budget            {background-position: 0px -128px; float: left;}
+.sprite-expenses          {background-position: -32px -128px; float: left;}
+.sprite-income            {background-position: 0px -160px; float: left;}
+.sprite-liabilities       {background-position: -32px -160px; float: left;}
+
+.ui-igedit-container {
+    margin-top: 5px;
+}
+
+.sprite-logo {
+    background-image: url('images/ui-sprite.png');
+    background-repeat: no-repeat;
+    background-position: -15px -390px;
+    width: 34px;
+    height: 21px;
+    display: inline-block;
+    position: relative;
+    float: left;
+    top: 8px;
+    left: 3px;
+}
+
+/* dialog */
+
+div.ui-dialog {
+    border: 0;
+    color: #333;
+    box-shadow: 0px 0px 50px rgba(0,0,0,0.4);
+    padding: 20px 0 0 0;
+    z-index: 99999!important;
+    position: relative;
+}
+    div.ui-dialog div.ui-dialog-titlebar {
+        background-color: transparent;
+        border: none;
+    }
+
+    .ui-dialog .ui-dialog-title {
+        color: #4B4B4B!important;
+    }
+
+    div.ui-dialog p {
+        color: #4B4B4B;
+        font-size: 14px;
+        margin-left: 15px;
+    }
+
+    div.ui-dialog h4 {
+        margin-left: 15px;
+        margin-bottom: 15px;
+        color: #4B4B4B;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    div.ui-igdialog-overlay {
+        background: #fff;
+    }
+
+.ui-igdialog-content {
+    padding: 0!important;
+}
+
+.ui-digdialog {
+    padding: 0!important;
+}
+
+.dialog-sprite {
+    background-image:url('images/about-icons-large.png');
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    margin-left: 15px;
+    padding: 0px;
+}
+
+.ds-grid {
+    background-position: 0px 0px;
+}
+
+.ds-chart {
+    background-position: -42px 0px;
+}
+
+.ds-combo {
+    background-position: -84px 0px;
+}
+
+.control-title {
+    margin-left: 7px;
+    margin-right: 13px;
+    position: relative;
+    bottom: 11px;
+    color: #454545;
+    font-size: 1.1em;
+}
+
+.dialog-dl-qr-wrap {
+    font-size: 0.813em;
+    font-weight: 600;
+    color: #333333;
+    text-shadow: 1px 1px 0 #FFFFFF;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 15px;
+}
+
+.dialog-download {
+    display: inline-block;
+    margin-top: 1px;
+}
+
+.dialog-download span {
+    background-image: url('images/ui-sprite.png');
+    background-position: -8px -200px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+    #barcode {
+        float: right;
+        display: inline-block;
+    }
+
+    .dialog-qr {
+        float: right;
+    }
+
+
+.ignite-ui-about {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    bottom: 28px;
+    background-color: #FF7814;
+}
+
+.infragistics-about {
+    background-color: #454545;
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+#info {
+    text-indent: -9999px;
+    background-image: url('images/ui-sprite.png');
+    float: right;
+    width: 32px;
+    height: 32px;
+    background-position: -32px -64px;
+    margin-top: -10px;
+}
+    #info:hover {
+        cursor: pointer;
+    }
