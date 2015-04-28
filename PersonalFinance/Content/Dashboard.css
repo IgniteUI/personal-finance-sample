@@ -360,7 +360,7 @@ div.ui-dialog {
     margin-top: 1px;
 }
 
-.dialog-download span {
+.dialog-dl-arrow {
     background-image: url('images/ui-sprite.png');
     background-position: -8px -200px;
     width: 16px;
@@ -371,13 +371,13 @@ div.ui-dialog {
     margin-left: 5px;
 }
 
+#barcode,
+.dialog-qr {
+    float: right;
+}
+    .dialog-qr img,
     #barcode {
-        float: right;
-        display: inline-block;
-    }
-
-    .dialog-qr {
-        float: right;
+        margin-left: 5px;
     }
 
 

@@ -81,3 +81,4 @@
 .ui-igplayer-related-video-hover-x24{cursor:pointer;z-index:20000;background:transparent url("../images/igVideoPlayer/igPlayButton24.png") no-repeat 50% 50%}
 .ui-igplayer-related-video-hover-x32{cursor:pointer;z-index:20000;background:transparent url("../images/igVideoPlayer/igPlayButton32.png") no-repeat 50% 50%}
 .ui-igplayer-related-video-hover-x48{cursor:pointer;z-index:20000;background:transparent url("../images/igVideoPlayer/igPlayButton48.png") no-repeat 50% 50%}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

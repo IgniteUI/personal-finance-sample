@@ -1,5 +1,7 @@
 ﻿/* English, US */
-/*global $ */
+
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 $.ig.regional = $.ig.regional || {};
 $.ig.regional['en-US'] = {
@@ -57,7 +59,7 @@ $.ig.regional.af = {
 	currencyNegativePattern: '$-n',
 	currencySymbol: 'R'
 };
-﻿/* Arabic Egypt */
+/* Arabic Egypt */
 $.ig.regional.ar = {
 	monthNames: ['كانون الثاني', 'شباط', 'آذار', 'نيسان', 'آذار', 'حزيران', 'تموز', 'آب', 'أيلول',	'تشرين الأول', 'تشرين الثاني', 'كانون الأول'],
 	monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
@@ -131,7 +133,7 @@ $.ig.regional.bg = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: ' '
 };
-﻿/* Bosnia */
+/* Bosnia */
 $.ig.regional.bs = {
 	monthNames: ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'],
 	monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
@@ -207,7 +209,7 @@ $.ig.regional.cs = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: ' '
 };
-﻿/* Denmark */
+/* Denmark */
 $.ig.regional.da = {
 	monthNames: ['Januar', 'Februar', 'Marts', 'April', 'Maj', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'December'],
 	monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
@@ -232,7 +234,7 @@ $.ig.regional.da = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Germany */
+/* Germany */
 $.ig.regional.de = {
 	monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
 	monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
@@ -256,7 +258,7 @@ $.ig.regional.de = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Greece */
+/* Greece */
 $.ig.regional.el = {
 	monthNames: ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
 	monthNamesShort: ['Ιαν', 'Φεβ', 'Μαρ', 'Απρ', 'Μαι', 'Ιουν', 'Ιουλ', 'Αυγ', 'Σεπ', 'Οκτ', 'Νοε', 'Δεκ'],
@@ -405,7 +407,7 @@ $.ig.regional.fi = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: ' '
 };
-﻿/* Faroe */
+/* Faroe */
 $.ig.regional.fo = {
 	monthNames: ['Januar', 'Februar', 'Mars', 'Apríl', 'Mei', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'],
 	monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
@@ -428,7 +430,7 @@ $.ig.regional.fo = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Switzerland, French */
+/* Switzerland, French */
 $.ig.regional['fr-CH'] = {
 	monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
 	monthNamesShort: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'],
@@ -494,7 +496,7 @@ $.ig.regional.he = {
 	currencyNegativePattern: '$-n',
 	currencySymbol: 'KM'
 };
-﻿/* Croatia */
+/* Croatia */
 $.ig.regional.hr = {
 	monthNames: ['Siječanj', 'Veljača', 'Ožujak', 'Travanj', 'Svibanj', 'Lipanj', 'Srpanj', 'Kolovoz', 'Rujan', 'Listopad', 'Studeni', 'Prosinac'],
 	monthNamesShort: ['Sij', 'Velj', 'Ožu', 'Tra', 'Svi', 'Lip', 'Srp', 'Kol', 'Ruj', 'Lis', 'Stu', 'Pro'],
@@ -632,7 +634,7 @@ $.ig.regional.it = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Japan */
+/* Japan */
 $.ig.regional.ja = {
 	monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
 	monthNamesShort: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
@@ -939,7 +941,7 @@ $.ig.regional.sl = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Albania */
+/* Albania */
 $.ig.regional.sq = {
 	monthNames: ['Janar', 'Shkurt', 'Mars', 'Prill', 'Maj', 'Qershor', 'Korrik', 'Gusht', 'Shtator', 'Tetor', 'Nëntor', 'Dhjetor'],
 	monthNamesShort: ['Jan', 'Shk', 'Mar', 'Pri', 'Maj', 'Qer', 'Kor', 'Gus', 'Sht', 'Tet', 'Nën', 'Dhj'],
@@ -967,7 +969,7 @@ $.ig.regional.sq = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Serbia (Latin) */
+/* Serbia (Latin) */
 $.ig.regional['sr-SR'] = {
 	monthNames: ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Jun', 'Jul', 'Avgust', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'],
 	monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Avg', 'Sep', 'Okt', 'Nov', 'Dec'],
@@ -991,7 +993,7 @@ $.ig.regional['sr-SR'] = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Serbia (Cyrillic) */
+/* Serbia (Cyrillic) */
 $.ig.regional.sr = {
 	monthNames: ['Јануар', 'Фебруар', 'Март', 'Април', 'Мај', 'Јун', 'Јул', 'Август', 'Септембар', 'Октобар', 'Новембар', 'Децембар'],
 	monthNamesShort: ['Јан', 'Феб', 'Мар', 'Апр', 'Мај', 'Јун', 'Јул', 'Авг', 'Сеп', 'Окт', 'Нов', 'Дец'],
@@ -1015,7 +1017,7 @@ $.ig.regional.sr = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: '.'
 };
-﻿/* Sweden */
+/* Sweden */
 $.ig.regional.sv = {
 	monthNames: ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'],
 	monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'],
@@ -1039,7 +1041,7 @@ $.ig.regional.sv = {
 	percentDecimalSeparator: ',',
 	percentGroupSeparator: ' '
 };
-﻿/* India (Tamil) */
+/* India (Tamil) */
 $.ig.regional.ta = {
 	monthNames: ['தை', 'மாசி', 'பங்குனி', 'சித்திரை', 'வைகாசி', 'ஆனி', 'ஆடி', 'ஆவணி', 'புரட்டாசி', 'ஐப்பசி', 'கார்த்திகை', 'மார்கழி'],
 	monthNamesShort: ['தை', 'மாசி', 'பங்', 'சித்', 'வைகா', 'ஆனி', 'ஆடி', 'ஆவ', 'புர', 'ஐப்', 'கார்', 'மார்'],
@@ -1060,7 +1062,7 @@ $.ig.regional.ta = {
 	percentPositivePattern: 'n $',
 	percentNegativePattern: '-n $'
 };
-﻿/* Thailand */
+/* Thailand */
 $.ig.regional.th = {
 	monthNames: ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฏาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'],
 	monthNamesShort: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'],
@@ -1183,7 +1185,7 @@ $.ig.regional['zh-HK'] = {
 	numericMaxDecimals: 2,
 	currencySymbol: 'HK$'
 };
-﻿/* China (Taiwan) */
+/* China (Taiwan) */
 $.ig.regional['zh-TW'] = {
 	monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
 	monthNamesShort: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
@@ -1201,3 +1203,4 @@ $.ig.regional['zh-TW'] = {
 	currencyNegativePattern: '-$n',
 	currencySymbol: 'NT$'
 };
+})(jQuery);

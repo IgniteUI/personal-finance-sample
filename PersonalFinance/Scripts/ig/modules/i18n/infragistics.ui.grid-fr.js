@@ -1,12 +1,14 @@
 ﻿/*!@license
-* Infragistics.Web.ClientUI Grid localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Grid localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Grid) {
@@ -34,7 +36,10 @@ if (!$.ig.Grid) {
 			templatingEnabledButNoTemplate: "L'option jQueryTemplating est définie sur vrai, mais aucun rowTemplate n'est défini.",
 			expandTooltip: "Étendre la ligne",
 			collapseTooltip: "Réduire la ligne",
-			movingNotAllowedOrIncompatible: "Impossible de déplacer la colonne demandée. La colonne n'a pas été trouvée ou le résultat n'était pas compatible avec la disposition des colonnes."
+			movingNotAllowedOrIncompatible: "Impossible de déplacer la colonne demandée. La colonne n'a pas été trouvée ou le résultat n'était pas compatible avec la disposition des colonnes.",
+			allColumnsHiddenOnInitialization: "Impossible de masquer toutes les colonnes de la grille. Veuillez définir au moins une des colonnes à afficher.",
+			columnVirtualizationNotSupportedWithPercentageWidth: "La virtualisation de colonne n'est pas prise en charge lorsque la largeur de grille est définie en unités de pourcentage.",
+			mixedWidthsNotSupported: "Les paramètres de largeur de colonne mélangés/partiels ne sont pas pris en charge. Les scénarios dans lesquels certaines largeurs de colonne sont définies en pourcentage tandis que d'autres sont définies en pixels (ou ne sont pas du tout définies) ne sont pas pris en charge."
 		}
 	});
 
@@ -54,6 +59,8 @@ if (!$.ig.Grid) {
 			lessThanOrEqualToNullText: "Inférieur ou égal à...",
 			onNullText: "Le...",
 			notOnNullText: "Pas le...",
+			afterNullText: "Après",
+			beforeNullText: "Avant",
 			emptyNullText: "Vide",
 			notEmptyNullText: "Pas vide",
 			nullNullText: "Nul",
@@ -130,7 +137,8 @@ if (!$.ig.Grid) {
 			modalDialogRootLevelHierarchicalGrid: 'racine',
 			modalDialogDropDownButtonCaption: "Afficher/Masquer",
 			modalDialogButtonApplyText: 'Appliquer',
-			modalDialogButtonCancelText: 'Annuler'
+			modalDialogButtonCancelText: 'Annuler',
+			fixedVirualizationNotSupported: 'La fonction GroupBy ne fonctionne pas avec la virtualisation verrouillée.'
 		}
 	});
 
@@ -155,6 +163,15 @@ if (!$.ig.Grid) {
 		}
 	});
 
+		$.ig.GridResizing = $.ig.GridResizing || {};
+
+		$.extend($.ig.GridResizing, {
+			locale: {
+			    noSuchVisibleColumn: "Aucune colonne visible correspondant à la clé spécifiée n'a été trouvée. Vous pouvez uniquement redimensionner les colonnes visibles.",
+			    resizingAndFixedVirtualizationNotSupported: "La fonction de redimensionnement ne fonctionne pas lorsque la virtualisation ou bien la virtualisation de colonne est activée avec le virtualizationMode verrouillé. Pour empêcher cette exception, veuillez définir virtualizationMode sur 'continuous' ou utiliser uniquement rowVirtualization."
+			}
+		});
+
 	$.ig.GridPaging = $.ig.GridPaging || {};
 
 	$.extend($.ig.GridPaging, {
@@ -178,16 +195,26 @@ if (!$.ig.Grid) {
 			firstPageTooltip: "Aller à la première page",
 			lastPageTooltip: "Aller à la dernière page",
 			pageTooltipFormat: "page ${index}",
-			pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} de ${recordCount} rangées"
+			    pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} de ${recordCount} rangées",
+			    invalidPageIndex: "Index de page non valide - il doit être supérieur ou égal à 0 et doit être inférieur au nombre de pages"
 		}
 	});
+
+    $.ig.GridSelection = $.ig.GridSelection || {};
+
+    $.extend($.ig.GridSelection, {
+        locale: {
+            persistenceImpossible: "L'option primaryKey d'igGrid doit être définie pour pouvoir réaliser une sélection persistante entre les états. Pour éviter d'obtenir cette erreur, veuillez définir une clé primaire ou désactiver la persistance."
+        }
+    });
 
 	$.ig.GridRowSelectors = $.ig.GridRowSelectors || {};
 
 	$.extend($.ig.GridRowSelectors, {
 
 		locale: {
-			selectionNotLoaded: "igGridSelection n'est pas initialisé. Pour éviter de recevoir ce message d'erreur, veuillez activer la fonctionnalité Sélection pour la grille ou définir la propriété requireSelection de la fonction de Sélectionneurs de lignes sur faux."
+			selectionNotLoaded: "igGridSelection n'est pas initialisé. Pour éviter de recevoir ce message d'erreur, veuillez activer la fonctionnalité Sélection pour la grille ou définir la propriété requireSelection de la fonction de Sélectionneurs de lignes sur faux.",
+			columnVirtualizationEnabled: "igGridRowSelectors n'est pas pris en charge lorsque la virtualisation de colonne est activée. Pour éviter de recevoir ce message d'erreur, veuillez activer uniquement la virtualisation de ligne en réglant la propriété 'rowVirtualization' de la grille sur vrai ou en changeant le mode de virtualisation sur 'continuous'."
 		}
 	});
 
@@ -256,7 +283,10 @@ if (!$.ig.Grid) {
 			noPrimaryKeyException: "Pour la prise en charge des opérations de mise à jour après la suppression d'une ligne, l'application doit définir la 'primaryKey' dans les options de igGrid.",
 			hiddenColumnValidationException: "Impossible d'éditer une ligne contenant une colonne masquée avec la validation activée.",
 			dataDirtyException: "La grille contient des transactions en cours qui peuvent affecter le rendu des données. Pour éviter l'exception, l'application peut activer l'option 'autoCommit' d'igGrid ou elle doit traiter l'événement 'dataDirty' d'igGridUpdating et retourner la mention faux. Tout en traitant cet événement, l'application peut aussi 'archiver()' les données dans igGrid.",
-			rowEditDialogCaptionLabel: 'Editer les données de ligne'
+			recordOrPropertyNotFoundException: 'The specified record or property was not found in the data source.',
+			rowEditDialogCaptionLabel: 'Editer les données de ligne', 
+            unboundColumnsNotSupported: "ColumnFixing n'est pas pris en charge avec les colonnes indépendantes",
+            excelNavigationNotSupportedWithCurrentEditMode: "Le mode de navigation Excel est pris en charge uniquement pour les modes Modification cellule et Modification ligne. Pour prévenir cette erreur, désactivez excelNavigationMode ou bien définissez editMode sur cellule ou ligne."
 		}
     });
 
@@ -270,6 +300,7 @@ if (!$.ig.Grid) {
             movingDialogCaptionButtonAsc: 'Monter',
             movingDialogCaptionText: 'Déplacer les colonnes',
             movingDialogDisplayText: 'Déplacer les colonnes',
+            movingDialogDropTooltipText: "Déplacer ici",
             dropDownMoveLeftText: 'Déplacer vers la gauche',
             dropDownMoveRightText: 'Déplacer vers la droite',
             dropDownMoveFirstText: 'Déplacer en premier',
@@ -289,25 +320,60 @@ if (!$.ig.Grid) {
             featureChooserTextFixedColumn: 'Verrouiller colonne',
             featureChooserTextUnfixedColumn: 'Détacher colonne',
             groupByNotSupported: "igGridGroupBy n'est pas pris en charge avec ColumnFixing",
-            virtualizationNotSupported: "La virtualisation n'est pas prise en charge avec ColumnFixing",
+            virtualizationNotSupported: "L'option de virtualisation de la grille permet la virtualisation de ligne et de colonne. La virtualisation de colonne n'est pas prise en charge avec ColumnFixing. Veuillez définir l'option rowVirtualization de la grille sur vrai",
+            columnVirtualizationNotSupported: "La virtualisation de colonne n'est pas prise en charge avec ColumnFixing",
             columnMovingNotSupported: "igGridColumnMoving n'est pas pris en charge avec ColumnFixing",
             hidingNotSupported: "igGridHiding n'est pas pris en charge avec ColumnFixing",
             hierarchicalGridNotSupported: "igHierarchicalGrid n'est pas pris en charge avec ColumnFixing",
             responsiveNotSupported: "igGridResponsive n'est pas pris en charge avec ColumnFixing",
-            noGridWidthHeightNotSupported: "Lorsque la grille n'a pas de largeur ni de hauteur définie, ColumnFixing n'est pas pris en charge"
+            noGridWidthNotSupported: "Vous devez spécifier la largeur de grille en pixels lors de l'utilisation de ColumnFixing",
+            defaultColumnWidthInPercentageNotSupported: "La largeur de colonne par défaut en pourcentage n'est pas prise en charge lors de l'utilisation de ColumnFixing",
+            columnsWidthShouldBeSetInPixels: 'La largeur de toutes les colonnes de la grille doit être définie en pixels pour ColumnFixing. Vérifier colonne avec la clé : ',
+            unboundColumnsNotSupported: "ColumnFixing n'est pas pris en charge avec les colonnes indépendantes",
+            excelNavigationNotSupportedWithCurrentEditMode: "Le mode de navigation Excel est pris en charge uniquement pour les modes Modification cellule et Modification ligne. Pour prévenir cette erreur, désactivez excelNavigationMode ou bien définissez editMode sur cellule ou ligne.",
+            internalErrors: {
+                none: 'Aucune erreur',
+                notValidIdentifier: "Il n'existe aucune colonne avec l'identifiant spécifié",
+                fixingRefused: 'Verrouillage refusé car il existe UNIQUEMENT une colonne non verrouillée visible',
+                fixingRefusedMinVisibleAreaWidth: "Le verrouillage de colonne n'est pas autorisé, en raison de la largeur minimale de la zone visible des colonnes non verrouillées",
+                alreadyHidden: 'Vous essayez de verrouiller/déverrouiller une colonne masquée',
+                alreadyUnfixed: 'La colonne que vous essayez de déverrouiller est déjà déverrouillée',
+                alreadyFixed: 'La colonne que vous essayez de verrouiller est déjà verrouillée',
+                unfixingRefused: "Le déverrouillage est refusé car il n'existe qu'une seule colonne verrouillée visible et car il existe au moins une colonne verrouillée masquée.",
+                targetNotFound: 'Target column is not found with the specified target identifier'
+            }
         }
     });
 
-    $.ig.GridLoadOnDemand = $.ig.GridLoadOnDemand || {};
+    $.ig.GridAppendRowsOnDemand = $.ig.GridAppendRowsOnDemand || {};
 
-    $.extend($.ig.GridLoadOnDemand, {
+    $.extend($.ig.GridAppendRowsOnDemand, {
     	locale: {
     		loadMoreDataButtonText: "Charger d'autres données",
-    		loadOnDemandRequiresHeight: "La fonction Load On Demand requiert une hauteur",
-    		groupByNotSupported: "igGridGroupBy n'est pas pris en charge avec LoadOnDemand",
-    		pagingNotSupported: "igGridPaging n'est pas pris en charge avec LoadOnDemand",
-    		cellMergingNotSupported: "igGridCellMerging n'est pas pris en charge avec LoadOnDemand",
-    		virtualizationNotSupported: "La virtualisation n'est pas prise en charge avec LoadOnDemand"
+    		appendRowsOnDemandRequiresHeight: "La fonction AppendRowsOnDemand requiert une hauteur",
+    		groupByNotSupported: "igGridGroupBy n'est pas pris en charge avec AppendRowsOnDemand",
+    		pagingNotSupported: "igGridPaging n'est pas pris en charge avec AppendRowsOnDemand",
+    		cellMergingNotSupported: "igGridCellMerging n'est pas pris en charge avec AppendRowsOnDemand",
+    		virtualizationNotSupported: "La virtualisation n'est pas prise en charge avec AppendRowsOnDemand"
     	}
     });
+
+
+    $.ig.igGridResponsive = $.ig.igGridResponsive || {};
+
+    $.extend($.ig.igGridResponsive, {
+    	locale: {
+    		fixedVirualizationNotSupported: "igGridResponsive n'est pas pris en charge avec la virtualisation verrouillée"
+    	}
+    });
+
+    $.ig.igGridMultiColumnHeaders = $.ig.igGridMultiColumnHeaders || {};
+
+    $.extend($.ig.igGridMultiColumnHeaders, {
+    	locale: {
+    		multiColumnHeadersNotSupportedWithColumnVirtualization: "La fonction d'en-têtes de colonnes multiples n'est pas prise en charge avec columnVirtualization"
+    	}
+    });
+
 }
+})(jQuery);

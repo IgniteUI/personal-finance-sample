@@ -9,8 +9,11 @@
         "controlsUsed": "Controls Used:",
         "InfoDescription": "	<p>The Finance Dashboard sample demonstrates the data chart, tree map, and zoom bar controls for the Financial Services industry. The data chart is optimized for high-speed financial charting. This sample uses large datasets with millions of data points and real-time updates. The data chart enables key statistical and technical indicators and comparisons to key competitors. </p>",
         "ShowCaseUrl": "http://igniteui.com/personal-finance-sample",
+        "sourceDownloadUrl": "http://infragistics.com/downloads/generate/00000000-0000-0000-0000-000000003664?thankYouEmailContentId=11129",
         "sourceDownload": "Download Source Code",
-        "qrInfo": "Scan to view on your mobile device!"
+        "qrInfo": "Scan to view on your mobile device!",
+        "igniteuiURL": "http://igniteui.com/",
+        "igURL": "http://infragistics.com/"
     },
     "BudgetTracking": {
         "Budget": "Budget",

@@ -1,12 +1,14 @@
 ﻿/*!@license
-* Infragistics.Web.ClientUI Grid localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Grid localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Grid) {
@@ -34,7 +36,10 @@ if (!$.ig.Grid) {
 			templatingEnabledButNoTemplate: "Опция jQueryTemplating установлена в true, но опция rowTemplate не определена.",
 			expandTooltip: "Развернуть",
 			collapseTooltip: "Свернуть",
-			movingNotAllowedOrIncompatible: "Невозможно переместить колонку. Колонка не найдена или конечный результат несовместим с заданным расположением колонок."
+			movingNotAllowedOrIncompatible: "Невозможно переместить колонку. Колонка не найдена или конечный результат несовместим с заданным расположением колонок.",
+			allColumnsHiddenOnInitialization: "Все столбцы сетки не могут быть скрыты. Задайте хотя бы один столбец, который будет отображаться.",
+			columnVirtualizationNotSupportedWithPercentageWidth: "Если ширина сетки задана в процентах, виртуализация столбцов не поддерживается.",
+			mixedWidthsNotSupported: "Смешанные/частичные установки ширины столбца не поддерживаются. Не поддерживаются варианты, когда ширина некоторых столбцов задана в процентах, а ширина других – в пикселах (либо вообще не задана)."
 		}
 	});
 
@@ -54,6 +59,8 @@ if (!$.ig.Grid) {
 			lessThanOrEqualToNullText: "Меньше или равно...",
 			onNullText: "На...",
 			notOnNullText: "Не на...",
+			afterNullText: "После",
+			beforeNullText: "До",
 			emptyNullText: "Пусто",
 			notEmptyNullText: "Не пусто",
 			nullNullText: "Null",
@@ -130,7 +137,8 @@ if (!$.ig.Grid) {
 			modalDialogRootLevelHierarchicalGrid: 'первый уровень',
 			modalDialogDropDownButtonCaption: "Нажмите чтобы показать/спрятать",
 			modalDialogButtonApplyText: 'Готово',
-			modalDialogButtonCancelText: 'Отмена'
+			modalDialogButtonCancelText: 'Отмена',
+			fixedVirualizationNotSupported: 'Функция GroupBy не работает с фиксированной виртуализацией.'
 		}
 	});
 
@@ -155,6 +163,15 @@ if (!$.ig.Grid) {
 		}
 	});
 
+		$.ig.GridResizing = $.ig.GridResizing || {};
+
+		$.extend($.ig.GridResizing, {
+			locale: {
+			    noSuchVisibleColumn: "Не удалось найти видимый столбец с заданным ключом. Изменение размера возможно только для видимых столбцов.",
+			    resizingAndFixedVirtualizationNotSupported: "Если включена виртуализация либо виртуализация столбцов и для параметра virtualizationMode установлено значение фиксированная, функция изменения размера не работает. Чтобы избежать этого, установите для параметра virtualizationMode значение 'continuous' либо используйте только опцию rowVirtualization."
+			}
+		});
+
 	$.ig.GridPaging = $.ig.GridPaging || {};
 
 	$.extend($.ig.GridPaging, {
@@ -178,16 +195,26 @@ if (!$.ig.Grid) {
 			firstPageTooltip: "перейти к первой странице",
 			lastPageTooltip: "перейти к последней странице",
 			pageTooltipFormat: "страница ${index}",
-			pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} из ${recordCount} записей"
+			    pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} из ${recordCount} записей",
+			    invalidPageIndex: "Недопустимый индекс страницы: индекс должен быть больше или равен 0 и не должен превышать количество страниц"
 		}
 	});
+
+    $.ig.GridSelection = $.ig.GridSelection || {};
+
+    $.extend($.ig.GridSelection, {
+        locale: {
+        	persistenceImpossible: "Сохранение состояния селекции при обновлении возможно только при установки опции primaryKey в igGrid. Чтобы избежать этой ошибки, пожалуйста, установите первичный ключ или отключите сохранение состояния."
+        }
+    });
 
 	$.ig.GridRowSelectors = $.ig.GridRowSelectors || {};
 
 	$.extend($.ig.GridRowSelectors, {
 
 		locale: {
-			selectionNotLoaded: "igGridSelection не включена. Чтобы избежать этого сообщения об ошибке, включите опцию селекции (Selection) в таблице или установите опцию requireSelection в модуле Row Selectors в false."
+			selectionNotLoaded: "igGridSelection не включена. Чтобы избежать этого сообщения об ошибке, включите опцию селекции (Selection) в таблице или установите опцию requireSelection в модуле Row Selectors в false.",
+			columnVirtualizationEnabled: "Если включена виртуализация столбцов, опция igGridRowSelectors не поддерживается. Для того чтобы предотвратить получение этого сообщения об ошибке, включите только виртуализацию строк, активировав свойство сетки 'rowVirtualization', либо измените режим виртуализации на 'continuous'."
 		}
 	});
 
@@ -256,7 +283,10 @@ if (!$.ig.Grid) {
 			noPrimaryKeyException: 'Обновление после удаления возможно только если установлено "primaryKey" в опциях igGrid.',
 			hiddenColumnValidationException: 'Невозможно редактировать запись со скрытой колонкой и валидацией.',
 			dataDirtyException: 'Таблица содержит несохраненные данные. Чтобы избежать сообщения об ошибке, установите опцию "autoCommit" в igGrid или обработайте событие "dataDirty" из igGridUpdating и возвратите false из обработчика. Обработчик также может вызвать "commit()" из igGrid.',
-			rowEditDialogCaptionLabel: 'Редактировать запись'
+			recordOrPropertyNotFoundException: 'The specified record or property was not found in the data source.',
+			rowEditDialogCaptionLabel: 'Редактировать запись',
+			unboundColumnsNotSupported: 'Опция ColumnFixing не поддерживается с несвязанными столбцами',
+			excelNavigationNotSupportedWithCurrentEditMode: "Режим навигации Excel поддерживается только для режимов редактирования ячейки и редактирования строки. Для предотвращения этой ошибки отключите опцию excelNavigationMode либо установите с помощью параметра editMode режим редактирования ячейки или строки."
 		}
 	});
 
@@ -270,6 +300,7 @@ if (!$.ig.Grid) {
             movingDialogCaptionButtonAsc: 'Переместить вниз',
             movingDialogCaptionText: 'Переместить колонки',
             movingDialogDisplayText: 'Переместить колонки',
+            movingDialogDropTooltipText: "Переместить сюда",
             dropDownMoveLeftText: 'Переместить влево',
             dropDownMoveRightText: 'Переместить вправо',
             dropDownMoveFirstText: 'Переместить в начало',
@@ -289,25 +320,59 @@ if (!$.ig.Grid) {
             featureChooserTextFixedColumn: 'Закрепить колонку',
             featureChooserTextUnfixedColumn: 'Открепить колонку',
             groupByNotSupported: 'igGridGroupBy не поддерживается вместе с ColumnFixing',
-            virtualizationNotSupported: 'Виртуализация не поддерживается вместе с ColumnFixing',
+            virtualizationNotSupported: 'Функция сетки – виртуализация позволяет выполнять виртуализацию как строк, так и столбцов. С опцией ColumnFixing виртуализация столбцов не поддерживается. Активируйте опцию rowVirtualization сетки',
+            columnVirtualizationNotSupported: 'С опцией ColumnFixing виртуализация столбцов не поддерживается',
             columnMovingNotSupported: 'igGridColumnMoving не поддерживается вместе с ColumnFixing',
             hidingNotSupported: 'igGridHiding не поддерживается вместе с ColumnFixing',
             hierarchicalGridNotSupported: 'igHierarchicalGrid не поддерживается вместе с ColumnFixing',
             responsiveNotSupported: 'igGridResponsive не поддерживается вместе с ColumnFixing',
-            noGridWidthHeightNotSupported: 'Если ширина и высота таблицы не заданы, Column Fixing не поддерживается'
+            noGridWidthNotSupported: 'При использовании опции ColumnFixing необходимо задавать ширину сетки в пикселах',
+            defaultColumnWidthInPercentageNotSupported: "При использовании опции ColumnFixing ширина столбца в процентах по умолчанию не поддерживается",
+            columnsWidthShouldBeSetInPixels: 'Для использования опции ColumnFixing необходимо, чтобы ширина всех столбцов сетки была установлена в пикселах. Проверьте столбец с ключом: ',
+            unboundColumnsNotSupported: 'Опция ColumnFixing не поддерживается с несвязанными столбцами',
+            excelNavigationNotSupportedWithCurrentEditMode: "Режим навигации Excel поддерживается только для режимов редактирования ячейки и редактирования строки. Для предотвращения этой ошибки отключите опцию excelNavigationMode либо установите с помощью параметра editMode режим редактирования ячейки или строки.",
+            internalErrors: {
+                none: 'Ошибки отсутствуют',
+                notValidIdentifier: 'Столбец с указанным идентификатором отсутствует',
+                fixingRefused: 'Фиксация невозможна, поскольку имеется ТОЛЬКО один видимый незафиксированный столбец',
+                fixingRefusedMinVisibleAreaWidth: 'Фиксация столбца недопустима вследствие минимальной ширины видимой области для незафиксированных столбцов',
+                alreadyHidden: 'Попытка зафиксировать / отменить фиксацию скрытого столбца',
+                alreadyUnfixed: 'Попытка отменить фиксацию незафиксированного столбца',
+                alreadyFixed: 'Попытка зафиксировать ранее зафиксированный столбец',
+                unfixingRefused: 'Отмена фиксации невозможна, поскольку имеется только один видимый зафиксированный столбец и, по крайней мере, один скрытый зафиксированный столбец.',
+                targetNotFound: 'Target column is not found with the specified target identifier'
+            }
         }
     });
 
-    $.ig.GridLoadOnDemand = $.ig.GridLoadOnDemand || {};
+    $.ig.GridAppendRowsOnDemand = $.ig.GridAppendRowsOnDemand || {};
 
-    $.extend($.ig.GridLoadOnDemand, {
+    $.extend($.ig.GridAppendRowsOnDemand, {
     	locale: {
     		loadMoreDataButtonText: 'Загрузить больше данных',
-    		loadOnDemandRequiresHeight: 'Требуется установить высоту для использования Load On Demand',
-    		groupByNotSupported: 'igGridGroupBy не поддерживается вместе с LoadOnDemand',
-    		pagingNotSupported: 'igGridPaging не поддерживается вместе с LoadOnDemand',
-    		cellMergingNotSupported: 'igGridCellMerging не поддерживается вместе с LoadOnDemand',
-    		virtualizationNotSupported: 'Виртуализация не поддерживается вместе с LoadOnDemand'
+    		appendRowsOnDemandRequiresHeight: 'Требуется установить высоту для использования AppendRowsOnDemand',
+    		groupByNotSupported: 'igGridGroupBy не поддерживается вместе с AppendRowsOnDemand',
+    		pagingNotSupported: 'igGridPaging не поддерживается вместе с AppendRowsOnDemand',
+    		cellMergingNotSupported: 'igGridCellMerging не поддерживается вместе с AppendRowsOnDemand',
+    		virtualizationNotSupported: 'Виртуализация не поддерживается вместе с AppendRowsOnDemand'
     	}
     });
+
+    $.ig.igGridResponsive = $.ig.igGridResponsive || {};
+
+    $.extend($.ig.igGridResponsive, {
+    	locale: {
+    	    fixedVirualizationNotSupported: 'Опция igGridResponsive не поддерживается с фиксированной виртуализацией'
+    	}
+    });
+
+    $.ig.igGridMultiColumnHeaders = $.ig.igGridMultiColumnHeaders || {};
+
+    $.extend($.ig.igGridMultiColumnHeaders, {
+    	locale: {
+    	    multiColumnHeadersNotSupportedWithColumnVirtualization: 'Заголовки для нескольких столбцов не поддерживаются с опцией columnVirtualization'
+    	}
+    });
+
 }
+})(jQuery);

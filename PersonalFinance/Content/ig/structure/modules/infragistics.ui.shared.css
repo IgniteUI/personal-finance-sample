@@ -1,32 +1,4 @@
-﻿.ui-button{display:inline-block;nowhitespace:afterproperty;position:relative;padding:0;margin-right:.1em;text-decoration:none!important;cursor:pointer;text-align:center;zoom:1;overflow:visible}
-.ui-button-icon-only{width:2.4em}
-button.ui-button-icon-only{width:2.4em}
-.ui-button-icons-only{width:3.7em}
-button.ui-button-icons-only{width:3.7em}
-.ui-button span{-moz-border-radius:3px;nowhitespace:afterproperty;-webkit-border-radius:3px;border-radius:3px}
-input.ui-button{font-weight:normal;line-height:1.2;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;outline:0}
-.ui-button{*display:inline}
-.ui-button .ui-button-text{display:block;line-height:1.2;font-weight:normal}
-.ui-button-text-only .ui-button-text{padding:5px 12px}
-.ui-button-icon-only .ui-button-text,.ui-button-icons-only .ui-button-text{padding:3px 5px 5px;text-indent:-9999999px}
-.ui-button-text-icon-primary .ui-button-text,.ui-button-text-icons .ui-button-text{padding:3px 12px 5px 25px}
-.ui-button-text-icon-secondary .ui-button-text{padding:3px 25px 5px 12px}
-.ui-button-text-icons .ui-button-text{padding:3px 25px 5px}
-input.ui-button{padding:3px 12px}
-.ui-button .ui-icon{border:0 none}
-.ui-button-icon-only .ui-icon,.ui-button-text-icon-primary .ui-icon,.ui-button-text-icon-secondary .ui-icon,.ui-button-text-icons .ui-icon,.ui-button-icons-only .ui-icon{position:absolute;top:50%;margin-top:-8px;margin-left:6px}
-.ui-button-icon-only .ui-icon{left:50%;margin-left:-8px}
-.ui-button-text-icon-primary .ui-button-icon-primary,.ui-button-text-icons .ui-button-icon-primary,.ui-button-icons-only .ui-button-icon-primary{left:0}
-.ui-button-text-icon-secondary .ui-button-icon-secondary,.ui-button-text-icons .ui-button-icon-secondary,.ui-button-icons-only .ui-button-icon-secondary{right:.4em}
-.ui-button-text-icons .ui-button-icon-secondary,.ui-button-icons-only .ui-button-icon-secondary{right:.4em}
-.ui-buttonset{margin-right:7px}
-.ui-buttonset .ui-button{margin-left:0;margin-right:-.3em}
-.ui-buttonset,.ui-buttonset span{-moz-border-radius:0!important;-webkit-border-radius:0!important;border-radius:0!important}
-.ui-corner-left .ui-button-text{-moz-border-radius-topleft:4px!important;-webkit-border-top-left-radius:4px!important;border-top-left-radius:4px!important;-moz-border-radius-bottomleft:4px!important;-webkit-border-bottom-left-radius:4px!important;border-bottom-left-radius:4px!important}
-.ui-corner-right .ui-button-text{-moz-border-radius-topright:4px!important;-webkit-border-top-right-radius:4px!important;border-top-right-radius:4px!important;-moz-border-radius-bottomright:4px!important;-webkit-border-bottom-right-radius:4px!important;border-bottom-right-radius:4px!important}
-.ui-buttonset .ui-state-active .ui-button-text{cursor:default;-moz-box-shadow:none!important;-webkit-box-shadow:none!important;box-shadow:none!important}
-button.ui-button::-moz-focus-inner{border:0;padding:0}
-.ui-igprogressbar{position:relative;text-align:left}
+﻿.ui-igprogressbar{position:relative;text-align:left}
 .ui-igprogressbar .ui-igprogressbar-range{position:absolute;z-index:1;font-size:.7em;display:block;border:0;background-position:0 0;background-color:lightgray}
 .ui-igprogressbar-horizontal{height:.8em}
 .ui-igprogressbar-horizontal .ui-igprogressbar-range{top:0;height:100%}
@@ -77,8 +49,11 @@ button.ui-button::-moz-focus-inner{border:0;padding:0}
 .ui-igcheckbox-large{display:inline-block;width:20px;height:20px;font-size:1px;overflow:hidden}
 .ui-igcheckbox-large-off{background:none!important}
 .ui-igcheckbox-large-on{margin-left:2px;margin-right:2px;margin-top:2px;text-indent:0}
+.ui-igcheckbox-container{width:100%;overflow:hidden;text-align:center;vertical-align:middle}
 .touch .ui-datepicker table{font-size:1.2em}
+.touch .ui-datepicker{width:20em}
 .ui-hidden{display:none;visibility:hidden}
+.ui-unselectable{-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;-o-user-select:none;user-select:none}
 .ui-visible-phone{display:none!important}
 .ui-visible-tablet{display:none!important}
 .ui-hidden-desktop{display:none!important}
@@ -93,3 +68,4 @@ button.ui-button::-moz-focus-inner{border:0;padding:0}
 .ui-visible-phone{display:inherit!important}
 .ui-hidden-phone{display:none!important}
 }
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

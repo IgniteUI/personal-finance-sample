@@ -1,90 +1,95 @@
 ﻿/*!@license
-* Infragistics.Web.ClientUI data source localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI data source localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
 
-if (!$.ig.DataSourceLocale) {
-	$.ig.DataSourceLocale = {};
+    $.ig = $.ig || {};
 
-	$.extend($.ig.DataSourceLocale, {
+    if (!$.ig.DataSourceLocale) {
+	    $.ig.DataSourceLocale = {};
 
-		locale: {
-			invalidDataSource: "El origen de datos proporcionado no es válido. Es de tipo escalar.",
-			unknownDataSource: "No se puede determinar el tipo de origen de datos. Especifique si son datos JSON o XML.",
-			errorParsingArrays: "Se ha producido un error al analizar los datos de matriz y aplicar el esquema de datos definido: ",
-			errorParsingJson: "Se ha producido un error al analizar los datos JSON y aplicar el esquema de datos definido: ",
-			errorParsingXml: "Se ha producido un error al analizar los datos XML y aplicar el esquema de datos definido: ",
-			errorParsingHtmlTable: "Se ha producido un error al extraer datos de la tabla HTML y aplicar el esquema: ",
-			errorExpectedTbodyParameter: "Se esperaba un tbody o una tabla como parámetro.",
-			errorTableWithIdNotFound: "No se ha encontrado la tabla HTML con el siguiente Id.: ",
-			errorParsingHtmlTableNoSchema: "Se ha producido un error al analizar el DOM de la tabla: ",
-			errorParsingJsonNoSchema: "Se ha producido un error al analizar/evaluar la cadena JSON: ",
-			errorParsingXmlNoSchema: "Se ha producido un error al analizar la cadena XML: ",
-			errorXmlSourceWithoutSchema: "El origen de datos proporcionado es un documento xml, pero no hay un esquema de datos definido ($.IgDataSchema) ",
-			errorUnrecognizedFilterCondition: " La condición de filtro especificada no ha sido reconocida: ",
-			errorRemoteRequest: "Error en la solicitud remota de recuperación de datos: ",
-			errorSchemaMismatch: "Los datos de entrada no coinciden con el esquema, no se ha podido asignar el siguiente campo: ",
-			errorSchemaFieldCountMismatch: "Los datos de entrada no coinciden con el esquema en términos de número de campos. ",
-			errorUnrecognizedResponseType: "El tipo de respuesta no se ha establecido correctamente o no ha sido posible detectarlo automáticamente. Establezca settings.responseDataType y/o settings.responseContentType.",
-			hierarchicalTablesNotSupported: "Tablas no admitidas para HierarchicalSchema",
-			cannotBuildTemplate: "No se ha podido generar la plantilla jQuery. No hay registros presentes en el origen de datos y no hay columnas definidas.",
-			unrecognizedCondition: "Condición de filtro no reconocida en la siguiente expresión: ",
-			fieldMismatch: "La siguiente expresión contiene un campo o una condición de filtro no válidos: ",
-			noSortingFields: "No se ha especificado ningún campo. Debe especificar al menos un campo de ordenación al llamar a sort().",
-			filteringNoSchema: "No se ha especificado ningún esquema / campo. Debe especificar un esquema con definiciones y tipos de campo para poder filtrar el origen de datos."
-		}
-	});
+	    $.extend($.ig.DataSourceLocale, {
 
-}
+		    locale: {
+			    invalidDataSource: "El origen de datos proporcionado no es válido. Es de tipo escalar.",
+			    unknownDataSource: "No se puede determinar el tipo de origen de datos. Especifique si son datos JSON o XML.",
+			    errorParsingArrays: "Se ha producido un error al analizar los datos de matriz y aplicar el esquema de datos definido: ",
+			    errorParsingJson: "Se ha producido un error al analizar los datos JSON y aplicar el esquema de datos definido: ",
+			    errorParsingXml: "Se ha producido un error al analizar los datos XML y aplicar el esquema de datos definido: ",
+			    errorParsingHtmlTable: "Se ha producido un error al extraer datos de la tabla HTML y aplicar el esquema: ",
+			    errorExpectedTbodyParameter: "Se esperaba un tbody o una tabla como parámetro.",
+			    errorTableWithIdNotFound: "No se ha encontrado la tabla HTML con el siguiente Id.: ",
+			    errorParsingHtmlTableNoSchema: "Se ha producido un error al analizar el DOM de la tabla: ",
+			    errorParsingJsonNoSchema: "Se ha producido un error al analizar/evaluar la cadena JSON: ",
+			    errorParsingXmlNoSchema: "Se ha producido un error al analizar la cadena XML: ",
+			    errorXmlSourceWithoutSchema: "El origen de datos proporcionado es un documento xml, pero no hay un esquema de datos definido ($.IgDataSchema) ",
+			    errorUnrecognizedFilterCondition: " La condición de filtro especificada no ha sido reconocida: ",
+			    errorRemoteRequest: "Error en la solicitud remota de recuperación de datos: ",
+			    errorSchemaMismatch: "Los datos de entrada no coinciden con el esquema, no se ha podido asignar el siguiente campo: ",
+			    errorSchemaFieldCountMismatch: "Los datos de entrada no coinciden con el esquema en términos de número de campos. ",
+			    errorUnrecognizedResponseType: "El tipo de respuesta no se ha establecido correctamente o no ha sido posible detectarlo automáticamente. Establezca settings.responseDataType y/o settings.responseContentType.",
+			    hierarchicalTablesNotSupported: "Tablas no admitidas para HierarchicalSchema",
+			    cannotBuildTemplate: "No se ha podido generar la plantilla jQuery. No hay registros presentes en el origen de datos y no hay columnas definidas.",
+			    unrecognizedCondition: "Condición de filtro no reconocida en la siguiente expresión: ",
+			    fieldMismatch: "La siguiente expresión contiene un campo o una condición de filtro no válidos: ",
+			    noSortingFields: "No se ha especificado ningún campo. Debe especificar al menos un campo de ordenación al llamar a sort().",
+			    filteringNoSchema: "No se ha especificado ningún esquema / campo. Debe especificar un esquema con definiciones y tipos de campo para poder filtrar el origen de datos."
+		    }
+	    });
+
+    }
+})(jQuery);
+/*!@license
+* Infragistics.Web.ClientUI common DV widget localization resources 15.1.20151.1005
+*
+* Copyright (c) 2011-2015 Infragistics Inc.
+*
+* http://www.infragistics.com/
+*
+*/
+
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
+
+    if (!$.ig.Chart) {
+	    $.ig.Chart = {};
+
+	    $.extend($.ig.Chart, {
+
+		    locale: {
+			    seriesName: "debe especificar la opción de nombre de la serie al establecer las opciones.",
+			    axisName: "debe especificar la opción de nombre del eje al establecer las opciones.",
+			    invalidLabelBinding: "No existe ningún valor para las etiquetas de enlace.",
+			    close: "Cerrar",
+			    overview: "Información general",
+			    zoomOut: "Alejar",
+			    zoomIn: "Acercar",
+			    resetZoom: "Restablecer zoom"
+		    }
+	    });
+
+    }
+})(jQuery);
 
 /*!@license
-* Infragistics.Web.ClientUI common DV widget localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI shared localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
-*
-* http://www.infragistics.com/
-*
-*/
-
-$.ig = $.ig || {};
-
-if (!$.ig.Chart) {
-	$.ig.Chart = {};
-
-	$.extend($.ig.Chart, {
-
-		locale: {
-			seriesName: "debe especificar la opción de nombre de la serie al establecer las opciones.",
-			axisName: "debe especificar la opción de nombre del eje al establecer las opciones.",
-			invalidLabelBinding: "No existe ningún valor para las etiquetas de enlace.",
-			close: "Cerrar",
-			overview: "Información general",
-			zoomOut: "Alejar",
-			zoomIn: "Acercar",
-			resetZoom: "Restablecer zoom"
-		}
-	});
-
-}
-
-/*!@license
-* Infragistics.Web.ClientUI shared localization resources 13.2.20132.1010
-*
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*jQuery must be defined before this. If it is not the $ variable is created*/
-$ = $ || {};
-
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.SharedLocale) {
@@ -98,38 +103,41 @@ if (!$.ig.SharedLocale) {
 	});
 
 }
-
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI templating localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI templating localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.Templating) {
-	$.ig.Templating = {};
+    if (!$.ig.Templating) {
+	    $.ig.Templating = {};
 
-	$.extend($.ig.Templating, {
-		locale: {
-			undefinedArgument: 'Se ha producido un error al intentar recuperar las propiedades del origen de datos: '
-		}
-	});
-}
-
+	    $.extend($.ig.Templating, {
+		    locale: {
+			    undefinedArgument: 'Se ha producido un error al intentar recuperar las propiedades del origen de datos: '
+		    }
+	    });
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Barcode localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Barcode localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*global $ */
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Barcode) {
@@ -173,108 +181,121 @@ if (!$.ig.Barcode) {
 		}
 	};
 }
-
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Combo localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Combo localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*global $ */
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.Combo) {
-	$.ig.Combo = {
-		locale: {
-			noMatchFoundText: 'No hay resultados',
-			dropDownButtonTitle: 'Mostrar lista desplegable',
-			clearButtonTitle: 'Borrar valor'
-		}
-	};
-}
-
+    if (!$.ig.Combo) {
+	    $.ig.Combo = {
+		    locale: {
+		        noMatchFoundText: 'No hay resultados',
+		        dropDownButtonTitle: 'Mostrar lista desplegable',
+		        clearButtonTitle: 'Borrar valor',
+		        placeHolder: 'select...',
+		        notSuported: 'Operation not supported',
+		        errorNoSupportedTextsType: "Tipo de texto no admitido. Los textos de filtrado admitidos son: cadena y matriz.",
+			    errorUnrecognizedHighlightMatchesMode: "Unrecognized Highlight Matches Mode. Supported values are multi, contains, startsWith, full and null."
+		    }
+	    };
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Dialog localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Dialog localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*global $ */
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.Dialog) {
-	$.ig.Dialog = {
-		locale: {
-			closeButtonTitle: "Cerrar",
-			minimizeButtonTitle: "Minimizar",
-			maximizeButtonTitle: "Maximizar",
-			pinButtonTitle: "Anclar",
-			unpinButtonTitle: "Desanclar",
-			restoreButtonTitle: "Restaurar"
-		}
-	};
-}
-
+    if (!$.ig.Dialog) {
+	    $.ig.Dialog = {
+		    locale: {
+			    closeButtonTitle: "Cerrar",
+			    minimizeButtonTitle: "Minimizar",
+			    maximizeButtonTitle: "Maximizar",
+			    pinButtonTitle: "Anclar",
+			    unpinButtonTitle: "Desanclar",
+			    restoreButtonTitle: "Restaurar"
+		    }
+	    };
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Doughnut Chart localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Doughnut Chart localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.igDoughnutChart) {
-    $.ig.igDoughnutChart = {};
+    if (!$.ig.igDoughnutChart) {
+        $.ig.igDoughnutChart = {};
 
-    $.extend($.ig.igDoughnutChart, {
-        locale: {
-            invalidBaseElement: " no se admite como elemento base. Use DIV en su lugar."
-        }
-    });
-}
+        $.extend($.ig.igDoughnutChart, {
+            locale: {
+                invalidBaseElement: " no se admite como elemento base. Use DIV en su lugar."
+            }
+        });
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Editors localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Editors localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*global $ */
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.Editor) {
-	$.ig.Editor = {
-		locale: {
-			spinUpperTitle: 'Incrementar',
-			spinLowerTitle: 'Reducir',
-			buttonTitle: 'Mostrar lista',
-			clearTitle: 'Borrar valor',
-			datePickerButtonTitle: 'Mostrar calendario',
-			updateModeUnsupportedValue: 'La opción updateMode admite dos valores posibles: "onChange" e "immediate"'
-		}
-	};
-}
+    if (!$.ig.Editor) {
+	    $.ig.Editor = {
+		    locale: {
+			    spinUpperTitle: 'Incrementar',
+			    spinLowerTitle: 'Reducir',
+			    buttonTitle: 'Mostrar lista',
+			    clearTitle: 'Borrar valor',
+			    datePickerButtonTitle: 'Mostrar calendario',
+			    updateModeUnsupportedValue: 'La opción updateMode admite dos valores posibles: "onChange" e "immediate"'
+		    }
+	    };
+    }
+})(jQuery);
 
 /*!@license
-* Infragistics.Web.ClientUI Grid localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Grid localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Grid) {
@@ -302,7 +323,10 @@ if (!$.ig.Grid) {
 			templatingEnabledButNoTemplate: "jQueryTemplating está establecido como Verdadero, pero no se ha definido ninguna rowTemplate.",
 			expandTooltip: "Expandir fila",
 			collapseTooltip: "Contraer fila",
-			movingNotAllowedOrIncompatible: "No se ha podido desplazar la columna deseada. No se ha encontrado la columna o el resultado no era compatible con el diseño de columna."
+			movingNotAllowedOrIncompatible: "No se ha podido desplazar la columna deseada. No se ha encontrado la columna o el resultado no era compatible con el diseño de columna.",
+			allColumnsHiddenOnInitialization: "No es posible ocultar todas las columnas de cuadrícula. Permita que se muestre al menos una de las columnas.",
+			columnVirtualizationNotSupportedWithPercentageWidth: "La virtualización de columnas no se admite cuando el ancho de la cuadrícula se define en unidades de porcentaje.",
+			mixedWidthsNotSupported: "No se admite la configuración del ancho de columna mezclado/parcial. No se admiten los supuestos en los que algunos anchos de columna se establezcan en porcentajes y otros en píxeles (o no se establezcan)."
 		}
 	});
 
@@ -322,6 +346,8 @@ if (!$.ig.Grid) {
 			lessThanOrEqualToNullText: "Menor o igual a...",
 			onNullText: "En...",
 			notOnNullText: "No en...",
+			afterNullText: "Después",
+			beforeNullText: "Antes",
 			emptyNullText: "Vacío",
 			notEmptyNullText: "No vacío",
 			nullNullText: "Nulo",
@@ -398,7 +424,8 @@ if (!$.ig.Grid) {
 			modalDialogRootLevelHierarchicalGrid: 'raíz',
 			modalDialogDropDownButtonCaption: "Haga clic para mostrar/ocultar",
 			modalDialogButtonApplyText: 'Aplicar',
-			modalDialogButtonCancelText: 'Cancelar'
+			modalDialogButtonCancelText: 'Cancelar',
+			fixedVirualizationNotSupported: 'La función GroupBy no funciona si la virtualización está ajustada.'
 		}
 	});
 
@@ -423,6 +450,15 @@ if (!$.ig.Grid) {
 		}
 	});
 
+		$.ig.GridResizing = $.ig.GridResizing || {};
+
+		$.extend($.ig.GridResizing, {
+			locale: {
+			    noSuchVisibleColumn: "No se ha encontrado ninguna columna visible con la clave especificada. Solo puede cambiar el tamaño de las columnas visibles.",
+			    resizingAndFixedVirtualizationNotSupported: "La función de cambio de tamaño no funciona cuando la virtualización o la virtualización de columnas están habilitadas con virtualizationMode ajustado. Para evitar esta excepción establezca virtualizationMode en 'continuous' o utilice solo rowVirtualization."
+			}
+		});
+
 	$.ig.GridPaging = $.ig.GridPaging || {};
 
 	$.extend($.ig.GridPaging, {
@@ -446,16 +482,26 @@ if (!$.ig.Grid) {
 			firstPageTooltip: "ir a la primera página",
 			lastPageTooltip: "ir a la última página",
 			pageTooltipFormat: "página ${index}",
-			pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} de ${recordCount} registros"
+			    pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} de ${recordCount} registros",
+			    invalidPageIndex: "Índice de página no válido: debería ser igual o superior a 0 e inferior al número de página"
 		}
 	});
+
+    $.ig.GridSelection = $.ig.GridSelection || {};
+
+    $.extend($.ig.GridSelection, {
+        locale: {
+            persistenceImpossible: "La selección persistente entre los estados requiere que se defina la opción primaryKey de igGrid. Para evitar recibir este error, defina una clave principal o desactive la persistencia."
+        }
+    });
 
 	$.ig.GridRowSelectors = $.ig.GridRowSelectors || {};
 
 	$.extend($.ig.GridRowSelectors, {
 
 		locale: {
-			selectionNotLoaded: "igGridSelection no se ha inicializado. Para evitar recibir este mensaje de error, habilite la función de Selección para la cuadrícula o bien establezca la propiedad requireSelection de la función Selectores de Filas como Falso."
+			selectionNotLoaded: "igGridSelection no se ha inicializado. Para evitar recibir este mensaje de error, habilite la función de Selección para la cuadrícula o bien establezca la propiedad requireSelection de la función Selectores de Filas como Falso.",
+			columnVirtualizationEnabled: "igGridRowSelectors no se admite cuando la virtualización de columnas está habilitada. Para evitar recibir este mensaje de error, habilite solo la virtualización de filas mediante la activación de la propiedad 'rowVirtualization' de la cuadrícula o la modificación del modo de virtualización a 'continuous'."
 		}
 	});
 
@@ -524,7 +570,10 @@ if (!$.ig.Grid) {
 			noPrimaryKeyException: 'Para admitir las operaciones de actualización después de borrar una fila, la aplicación debe definir "primaryKey" en las opciones de igGrid.',
 			hiddenColumnValidationException: 'No se puede editar una fila que tiene una columna oculta con validación habilitada.',
 			dataDirtyException: 'La cuadrícula tiene transacciones pendientes que pueden afectar a la representación de datos. Para evitar excepciones, la aplicación puede habilitar la opción "autoCommit" de igGrid o bien debe procesar el evento "dataDirty" de igGridUpdating y devolver Falso. Al procesar ese evento, la aplicación también puede efectuar "commit()" datos en igGrid.',
-			rowEditDialogCaptionLabel: 'Editar datos de fila'
+			recordOrPropertyNotFoundException: 'The specified record or property was not found in the data source.',
+			rowEditDialogCaptionLabel: 'Editar datos de fila',
+			unboundColumnsNotSupported: 'ColumnFixing is not supported with Unbound Columns',
+			excelNavigationNotSupportedWithCurrentEditMode: "El modo de navegación Excel solo se admite en los modos de edición de celda o de edición de fila. Para evitar este error, desactive excelNavigationMode o establezca editMode en celda o fila."
 		}
     });
 
@@ -538,6 +587,7 @@ if (!$.ig.Grid) {
             movingDialogCaptionButtonAsc: 'Subir',
             movingDialogCaptionText: 'Mover columnas',
             movingDialogDisplayText: 'Mover columnas',
+            movingDialogDropTooltipText: "Mover aquí",
             dropDownMoveLeftText: 'Mover a la izquierda',
             dropDownMoveRightText: 'Mover a la derecha',
             dropDownMoveFirstText: 'Mover primero',
@@ -557,38 +607,74 @@ if (!$.ig.Grid) {
             featureChooserTextFixedColumn: 'Fijar columna',
             featureChooserTextUnfixedColumn: 'Soltar columna',
             groupByNotSupported: 'igGridGroupBy no se admite con ColumnFixing',
-            virtualizationNotSupported: 'La virtualización no se admite con ColumnFixing',
+            virtualizationNotSupported: 'La virtualización de la opción de cuadrícula permite la virtualización de filas y columnas. La virtualización de columnas no se admite con ColumnFixing. Active la opción rowVirtualization de cuadrícula',
+            columnVirtualizationNotSupported: 'La virtualización de columnas no se admite con ColumnFixing',
             columnMovingNotSupported: 'igGridColumnMoving no se admite con ColumnFixing',
             hidingNotSupported: 'igGridHiding no se admite con ColumnFixing',
             hierarchicalGridNotSupported: 'igHierarchicalGrid no se admite con ColumnFixing',
             responsiveNotSupported: 'igGridResponsive no se admite con ColumnFixing',
-            noGridWidthHeightNotSupported: 'ColumnFixing no se admite cuando no se ha definido el ancho y la altura de la cuadrícula'
+            noGridWidthNotSupported: 'Debe especificar el ancho de la cuadrícula en píxeles cuando se utiliza ColumnFixing',
+            defaultColumnWidthInPercentageNotSupported: "El ancho de columna predeterminado en porcentaje no se admite cuando se utiliza ColumnFixing",
+            columnsWidthShouldBeSetInPixels: 'ColumnFixing requiere que el ancho de todas las columnas de cuadrícula esté establecido en píxeles. Compruebe la columna con la clave: ',
+            unboundColumnsNotSupported: 'ColumnFixing no se admite con columnas sueltas',
+            excelNavigationNotSupportedWithCurrentEditMode: "El modo de navegación Excel solo se admite en los modos de edición de celda o de edición de fila. Para evitar este error, desactive excelNavigationMode o establezca editMode en celda o fila.",
+            internalErrors: {
+                none: 'No hay error',
+                notValidIdentifier: 'No existe ninguna columna con el identificador especificado',
+                fixingRefused: 'La acción de fijar se deniega porque SOLO hay una columna suelta visible',
+                fixingRefusedMinVisibleAreaWidth: 'No se permite fijar una columna debido al ancho mínimo del área visible de columnas sueltas',
+                alreadyHidden: 'Está intentando fijar/soltar una columna oculta',
+                alreadyUnfixed: 'La columna que está intentando soltar ya está suelta',
+                alreadyFixed: 'La columna que está intentando fijar ya está fijada',
+                unfixingRefused: 'La acción de soltar se deniega porque solo hay una columna fijada visible y hay al menos una columna fijada oculta.',
+                targetNotFound: 'Target column is not found with the specified target identifier'
+            }
         }
     });
 
-    $.ig.GridLoadOnDemand = $.ig.GridLoadOnDemand || {};
+    $.ig.GridAppendRowsOnDemand = $.ig.GridAppendRowsOnDemand || {};
 
-    $.extend($.ig.GridLoadOnDemand, {
+    $.extend($.ig.GridAppendRowsOnDemand, {
     	locale: {
     	    loadMoreDataButtonText: 'Cargar más datos',
-    	    loadOnDemandRequiresHeight: 'La función Load On Demand necesita altura',
-    	    groupByNotSupported: 'igGridGroupBy no se admite con LoadOnDemand',
-    	    pagingNotSupported: 'igGridPaging no se admite con LoadOnDemand',
-    	    cellMergingNotSupported: 'igGridCellMerging no se admite con LoadOnDemand',
-    	    virtualizationNotSupported: 'La virtualización no se admite con LoadOnDemand'
+    	    appendRowsOnDemandRequiresHeight: 'La función AppendRowsOnDemand necesita altura',
+    	    groupByNotSupported: 'igGridGroupBy no se admite con AppendRowsOnDemand',
+    	    pagingNotSupported: 'igGridPaging no se admite con AppendRowsOnDemand',
+    	    cellMergingNotSupported: 'igGridCellMerging no se admite con AppendRowsOnDemand',
+    	    virtualizationNotSupported: 'La virtualización no se admite con AppendRowsOnDemand'
     	}
     });
+
+    $.ig.igGridResponsive = $.ig.igGridResponsive || {};
+
+    $.extend($.ig.igGridResponsive, {
+    	locale: {
+    	    fixedVirualizationNotSupported: 'igGridResponsive no se admite con la virtualización fijada'
+    	}
+    });
+
+    $.ig.igGridMultiColumnHeaders = $.ig.igGridMultiColumnHeaders || {};
+
+    $.extend($.ig.igGridMultiColumnHeaders, {
+    	locale: {
+    	    multiColumnHeadersNotSupportedWithColumnVirtualization: 'La función de encabezados de columnas múltiples no se admite con columnVirtualization'
+    	}
+    });
+
 }
+})(jQuery);
 
 /*!@license
-* Infragistics.Web.ClientUI HTML Editor localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI HTML Editor localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.HtmlEditor) {
@@ -640,8 +726,6 @@ if (!$.ig.HtmlEditor) {
 			linkTargetTopmostWindowDialogText: 'Ventana de nivel superior',
 			applyButtonTitle: 'Aplicar',
 			cancelButtonTitle: 'Cancelar',
-			collapseButtonTitle: 'Contraer',
-			expandButtonTitle: 'Expandir',
 			defaultToolbars: {
 			    textToolbar: "text manipulation toolbar",
 			    formattingToolbar: "text formatting toolbar",
@@ -692,146 +776,182 @@ if (!$.ig.HtmlEditor) {
 					]
 			},
 			fontSizes: [
-				{ text: "1", value: "1 (8pt)", style: "xx-small"},
-				{ text: "2", value: "2 (9pt)", style: "x-small" },
-				{ text: "3", value: "3 (10pt)", style: "small" },
-				{ text: "4", value: "4 (12pt)", style: "medium" },
-				{ text: "5", value: "5 (14pt)", style: "large" },
-				{ text: "6", value: "6 (16pt)", style: "x-large" },
-				{ text: "7", value: "7 (18pt)", style: "xx-large" }
+				{ text: "1", value: "7.5 pt" },
+				{ text: "2", value: "10 pt" },
+				{ text: "3", value: "12 pt" },
+				{ text: "4", value: "13.5 pt" },
+				{ text: "5", value: "18 pt" },
+				{ text: "6", value: "24 pt" },
+				{ text: "7", value: "36 pt" }
 			],
 			formatsList: [
-					{ text: "h1", value: "Heading 1" },
-					{ text: "h2", value: "Heading 2" },
-					{ text: "h3", value: "Heading 3" },
-					{ text: "h4", value: "Heading 4" },
-					{ text: "h5", value: "Heading 5" },
-					{ text: "h6", value: "Heading 6" }
+					{ text: "h1", value: "Encabezado 1" },
+					{ text: "h2", value: "Encabezado 2" },
+					{ text: "h3", value: "Encabezado 3" },
+					{ text: "h4", value: "Encabezado 4" },
+					{ text: "h5", value: "Encabezado 5" },
+					{ text: "h6", value: "Encabezado 6" },
+                    { text: "p", value: "Normal" }
 				]
 		}
 
 	});
 }
-
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Pivot Shared localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Pivot Shared localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.PivotShared) {
-    $.ig.PivotShared = {};
+    if (!$.ig.PivotShared) {
+        $.ig.PivotShared = {};
 
-    $.extend($.ig.PivotShared, {
-        locale: {
-            invalidDataSource: "La fuente de datos pasada es cero o no se admite.",
-            measureList: "Medidas",
-            ok: "Aceptar",
-            cancel: "Cancelar",
-            addToMeasures: "Agregar a medidas",
-            addToFilters: "Agregar a filtros",
-            addToColumns: "Agregar a columnas",
-            addToRows: "Agregar a filas"
-        }
-    });
-}
+        $.extend($.ig.PivotShared, {
+            locale: {
+                invalidDataSource: "La fuente de datos pasada es cero o no se admite.",
+                measureList: "Medidas",
+                ok: "Aceptar",
+                cancel: "Cancelar",
+                addToMeasures: "Agregar a medidas",
+                addToFilters: "Agregar a filtros",
+                addToColumns: "Agregar a columnas",
+                addToRows: "Agregar a filas"
+            }
+        });
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Pivot Data Selector localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Pivot Data Selector localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.PivotDataSelector) {
-    $.ig.PivotDataSelector = {};
+    if (!$.ig.PivotDataSelector) {
+        $.ig.PivotDataSelector = {};
 
-    $.extend($.ig.PivotDataSelector, {
-        locale: {
-            invalidBaseElement: " no se admite como elemento base. Use DIV en su lugar.",
-            catalog: "Catálogo",
-            cube: "Cubo",
-            measureGroup: "Medir grupo",
-            measureGroupAll: "(Todo)",
-            rows: "Filas",
-            columns: "Columnas",
-            measures: "Medidas",
-            filters: "Filtros",
-            deferUpdate: "Aplazar actualización",
-            updateLayout: "Actualizar diseño",
-            selectAll: "Seleccionar todo"
-        }
-    });
-}
+        $.extend($.ig.PivotDataSelector, {
+            locale: {
+                invalidBaseElement: " no se admite como elemento base. Use DIV en su lugar.",
+                catalog: "Catálogo",
+                cube: "Cubo",
+                measureGroup: "Medir grupo",
+                measureGroupAll: "(Todo)",
+                rows: "Filas",
+                columns: "Columnas",
+                measures: "Medidas",
+                filters: "Filtros",
+                deferUpdate: "Aplazar actualización",
+                updateLayout: "Actualizar diseño",
+                selectAll: "Seleccionar todo"
+            }
+        });
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Pivot Grid localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Pivot Grid localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.PivotGrid) {
-    $.ig.PivotGrid = {};
+    if (!$.ig.PivotGrid) {
+        $.ig.PivotGrid = {};
 
-    $.extend($.ig.PivotGrid, {
-        locale: {
-            filtersHeader: "Soltar campos de filtro aquí",
-            measuresHeader: "Soltar elementos de datos aquí",
-            rowsHeader: "Soltar campos de fila aquí",
-            columnsHeader: "Soltar campos de columna aquí",
-            disabledFiltersHeader: "Campos de filtro",
-            disabledMeasuresHeader: "Elementos de datos",
-            disabledRowsHeader: "Campos de fila",
-            disabledColumnsHeader: "Campos de columna",
-            noSuchAxis: "No hay tal eje"
-        }
-    });
-}
+        $.extend($.ig.PivotGrid, {
+            locale: {
+                filtersHeader: "Soltar campos de filtro aquí",
+                measuresHeader: "Soltar elementos de datos aquí",
+                rowsHeader: "Soltar campos de fila aquí",
+                columnsHeader: "Soltar campos de columna aquí",
+                disabledFiltersHeader: "Campos de filtro",
+                disabledMeasuresHeader: "Elementos de datos",
+                disabledRowsHeader: "Campos de fila",
+                disabledColumnsHeader: "Campos de columna",
+                noSuchAxis: "No hay tal eje"
+            }
+        });
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Popover localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Popover localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*jQuery must be defined before this. If it is not the $ variable is created*/
-$ = $ || {};
-
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Popover) {
-    $.ig.Popover = {};
+	$.ig.Popover = {};
 
-    $.extend( $.ig.Popover, {
-	    locale: {
-	        popoverOptionChangeNotSupported: "No se admite el cambio de la siguiente opción después de inicializar igPopover:"
+	$.extend( $.ig.Popover, {
+		locale: {
+			popoverOptionChangeNotSupported: "No se admite el cambio de la siguiente opción después de inicializar igPopover:",
+			popoverShowMethodWithoutTarget: "El parámetro target de la función show es obligatorio cuando se utiliza la opción selectors"
 		}
 	});
 
 }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Splitter localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Rating localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
+
+    if (!$.ig.Rating) {
+	    $.ig.Rating = {};
+
+	    $.extend($.ig.Rating, {
+		    locale: {
+			    setOptionError: 'Los cambios en el tiempo de ejecución no están permitidos para la siguiente opción: '
+		    }
+	    });
+    }
+})(jQuery);
+/*!@license
+* Infragistics.Web.ClientUI Splitter localization resources 15.1.20151.1005
+*
+* Copyright (c) 2011-2015 Infragistics Inc.
+*
+* http://www.infragistics.com/
+*
+*/
+
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Splitter) {
@@ -839,21 +959,24 @@ if (!$.ig.Splitter) {
 
 	$.extend($.ig.Splitter, {
 		locale: {
-		    errorPanels: 'El número de paneles no puede ser superior a dos.'
+		    errorPanels: 'El número de paneles no puede ser superior a dos.',
+		    errorSettingOption: 'Error al ajustar la opción.'
 		}
 	});
 
 }
-
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Tile Manager localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Tile Manager localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.TileManager) {
@@ -867,209 +990,266 @@ if (!$.ig.TileManager) {
 	});
 
 }
-
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Tree localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Toolbar localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
-if (!$.ig.Tree) {
-	$.ig.Tree = {};
+if (!$.ig.Toolbar) {
+    $.ig.Toolbar = {};
 
-	$.extend($.ig.Tree, {
+    $.extend($.ig.Toolbar, {
+
 		locale: {
-			invalidArgumentType: 'El tipo de argumento proporcionado no es válido.',
-			errorOnRequest: 'Se ha producido un error al recuperar los datos: ',
-			noDataSourceUrl: 'El control igTree requiere que se proporcione una dataSourceUrl para iniciar una solicitud de datos en esa dirección URL.',
-			incorrectPath: 'No se ha encontrado un nodo en la ruta proporcionada: ',
-			incorrectNodeObject: 'El argumento proporcionado no es un elemento nodo de jQuery.',
-			setOptionError: 'Los cambios en el tiempo de ejecución no están permitidos para la siguiente opción: ',
-			moveTo: '<strong>Mover a</strong> {0}',
-			moveBetween: '<strong>Mover entre</strong> {0} y {1}',
-			moveAfter: '<strong>Mover después de</strong> {0}',
-			moveBefore: '<strong>Mover antes de</strong> {0}',
-			copyTo: '<strong>Copiar en</strong> {0}',
-			copyBetween: '<strong>Copiar entre</strong> {0} y {1}',
-			copyAfter: '<strong>Copiar después de</strong> {0}',
-			copyBefore: '<strong>Copiar antes de</strong> {0}',
-			and: 'y'
+			collapseButtonTitle: 'Contraer',
+			expandButtonTitle: 'Expandir'
 		}
+
 	});
-
 }
-
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Upload localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Tree localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.Upload) {
-	$.ig.Upload = {};
+    if (!$.ig.Tree) {
+	    $.ig.Tree = {};
 
-	$.extend($.ig.Upload, {
+	    $.extend($.ig.Tree, {
+		    locale: {
+			    invalidArgumentType: 'El tipo de argumento proporcionado no es válido.',
+			    errorOnRequest: 'Se ha producido un error al recuperar los datos: ',
+			    noDataSourceUrl: 'El control igTree requiere que se proporcione una dataSourceUrl para iniciar una solicitud de datos en esa dirección URL.',
+			    incorrectPath: 'No se ha encontrado un nodo en la ruta proporcionada: ',
+			    incorrectNodeObject: 'El argumento proporcionado no es un elemento nodo de jQuery.',
+			    setOptionError: 'Los cambios en el tiempo de ejecución no están permitidos para la siguiente opción: ',
+			    moveTo: '<strong>Mover a</strong> {0}',
+			    moveBetween: '<strong>Mover entre</strong> {0} y {1}',
+			    moveAfter: '<strong>Mover después de</strong> {0}',
+			    moveBefore: '<strong>Mover antes de</strong> {0}',
+			    copyTo: '<strong>Copiar en</strong> {0}',
+			    copyBetween: '<strong>Copiar entre</strong> {0} y {1}',
+			    copyAfter: '<strong>Copiar después de</strong> {0}',
+			    copyBefore: '<strong>Copiar antes de</strong> {0}',
+			    and: 'y'
+		    }
+	    });
 
-		locale: {
-			labelUploadButton: "Cargar archivo",
-			labelAddButton: "Agregar",
-			labelClearAllButton: "Borrar cargados",
-			// M.H. 13 May 2011 - fix bug 75042
-			labelSummaryTemplate: "{0} de {1} cargados",
-			labelSummaryProgressBarTemplate: "{0}/{1}",
-			labelShowDetails: "Mostrar detalles",
-			labelHideDetails: "Ocultar detalles",
-			labelSummaryProgressButtonCancel: "Cancelar",
-			// M.H. 1 June 2011 Fix bug #77532
-			labelSummaryProgressButtonContinue: "Cargar",
-			labelSummaryProgressButtonDone: "Terminado",
-			labelProgressBarFileNameContinue: "...",
-
-			//error messages
-			errorMessageFileSizeExceeded: "Se ha excedido el tamaño máximo de archivo.",
-			errorMessageGetFileStatus: "¡Imposible obtener el estado de archivo actual! Probablemente se ha cortado la conexión.",
-			errorMessageCancelUpload: "¡Imposible enviar comando al servidor para cancelar la carga! Probablemente se ha cortado la conexión.",
-			errorMessageNoSuchFile: "No se ha encontrado el archivo que ha solicitado. Probablemente el archivo es demasiado grande.",
-			errorMessageOther: "Error interno al cargar el archivo. Código de error: {0}.",
-			errorMessageValidatingFileExtension: "Error en la validación de extensión del archivo.",
-			errorMessageAJAXRequestFileSize: "Error de AJAX al intentar obtener el tamaño del archivo.",
-			errorMessageMaxUploadedFiles: "Se ha superado el número máximo de archivos que pueden cargarse.",
-			errorMessageMaxSimultaneousFiles: "El valor de maxSimultaneousFilesUploads es incorrecto. Debe ser superior a 0 o nulo.",
-			errorMessageTryToRemoveNonExistingFile: "Está intentando eliminar un archivo no existente con el Id. {0}.",
-			errorMessageTryToStartNonExistingFile: "Está intentando ejecutar un archivo no existente con el Id. {0}.",
-
-			// M.H. 12 May 2011 - fix bug 74763: add title to all buttons
-			// title attributes            
-			titleUploadFileButtonInit: "Cargar archivo",
-			titleAddFileButton: "Agregar",
-			titleCancelUploadButton: "Cancelar",
-			// M.H. 1 June 2011 Fix bug #77532
-			titleSummaryProgressButtonContinue: "Cargar",
-			titleClearUploaded: "Borrar cargados",
-			titleShowDetailsButton: "Mostrar detalles",
-			titleHideDetailsButton: "Ocultar detalles",
-			titleSummaryProgressButtonCancel: "Cancelar",
-			titleSummaryProgressButtonDone: "Terminado",
-			// M.H. 1 June 2011 Fix bug #77532
-			titleSingleUploadButtonContinue: "Cargar",
-			titleClearAllButton: "Borrar cargados"
-		}
-	});
-
-}
-
-
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Validator localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Tree Grid localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*global $ */
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.Validator) {
-	$.ig.Validator = {
-		locale: {
-			defaultMessage: 'Corrija este campo',
-			selectMessage: 'Seleccione un valor',
-			rangeSelectMessage: 'Seleccione un número de elementos entre {0} como máximo y {1} como mínimo',
-			minSelectMessage: 'Seleccione {0} elementos como mínimo',
-			maxSelectMessage: 'No seleccione más de {0} elementos',
-			rangeLengthMessage: 'Escriba un valor de entre {0} y {1} caracteres',
-			minLengthMessage: 'Escriba {0} caracteres como mínimo',
-			maxLengthMessage: 'No escriba más de {0} caracteres',
-			requiredMessage: 'Este campo es obligatorio',
-			maskMessage: 'Rellene todas las posiciones obligatorias',
-			dateFieldsMessage: 'Rellene los campos de fecha',
-			invalidDayMessage: 'Día del mes no válido. Escriba el día correcto',
-			dateMessage: 'Escriba una fecha válida',
-			numberMessage: 'Escriba un número válido',
-			rangeMessage: 'Escriba un valor entre {0} y {1}',
-			minMessage: 'Escriba un valor mayor o igual a {0}',
-			maxMessage: 'Escriba un valor menor o igual a {0}'
-		}
-	};
-}
+    if (!$.ig.TreeGrid) {
+        $.ig.TreeGrid = {};
 
+        $.extend($.ig.TreeGrid, {
+            locale: {
+                fixedVirtualizationNotSupported: 'Fixed virtualization is not supported. Please set virtualizationMode to continuous in order to enable row virtualization'
+            }
+        });
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Video Player localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Upload localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.VideoPlayer) {
-	$.ig.VideoPlayer = {};
+    if (!$.ig.Upload) {
+	    $.ig.Upload = {};
 
-	$.extend($.ig.VideoPlayer, {
+	    $.extend($.ig.Upload, {
 
-		locale: {
-			liveStream: "Vídeo en directo",
-			live: "Directo",
-			paused: "Pausado",
-			playing: "Reproduciendo",
-			play: 'Reproducir',
-			volume: "Volumen",
-			unsupportedVideoSource: "Los orígenes de vídeo actuales no contienen un formato compatible con su explorador.",
-			missingVideoSource: "No hay orígenes de vídeo compatibles.",
-			progressLabelLongFormat: "$currentTime$ / $duration$",
-			progressLabelShortFormat: "$currentTime$",
-			enterFullscreen: "Mostrar en pantalla completa",
-			exitFullscreen: "Salir de pantalla completa",
-			skipTo: "SALTAR A",
-			unsupportedBrowser: "El explorador actual no admite vídeo HTML5. <br/>Intente actualizar a una de las siguientes versiones:",
-			currentBrowser: "Explorador actual: {0}",
-			ie9: "Microsoft Internet Explorer V 9+",
-			chrome8: "Google Chrome V 8+",
-			firefox36: "Mozilla Firefox V 3.6+",
-			safari5: "Apple Safari V 5+",
-			opera11: "Opera V 11+",
-			ieDownload: "http://www.microsoft.com/windows/internet-explorer/default.aspx",
-			operaDownload: "http://www.opera.com/download/",
-			chromeDownload: "http://www.google.com/chrome",
-			firefoxDownload: "http://www.mozilla.com/",
-			safariDownload: "http://www.apple.com/safari/download/",
-			buffering: 'Almacenando en búfer...',
-			adMessage: 'Anuncio: El vídeo se reanudará en $duration$ segundos.',
-			adMessageLong: 'Anuncio: El vídeo se reanudará en $duration$.',
-			adMessageNoDuration: 'Anuncio: El vídeo se reanudará después de la publicidad.',
-			adNewWindowTip: 'Anuncio: Haga clic para abrir el contenido del anuncio en una ventana nueva.',
-			nonDivException: 'El Reproductor de vídeo Infragistics HTML5 solo puede instanciarse en una etiqueta DIV.',
-			relatedVideos: 'VÍDEOS RELACIONADOS',
-			replayButton: 'Volver a reproducir',
-			replayTooltip: 'Haga clic para volver a reproducir el último vídeo.'
-		}
-	});
+		    locale: {
+			    labelUploadButton: "Cargar archivo",
+			    labelAddButton: "Agregar",
+			    labelClearAllButton: "Borrar cargados",
+			    // M.H. 13 May 2011 - fix bug 75042
+			    labelSummaryTemplate: "{0} de {1} cargados",
+			    labelSummaryProgressBarTemplate: "{0}/{1}",
+			    labelShowDetails: "Mostrar detalles",
+			    labelHideDetails: "Ocultar detalles",
+			    labelSummaryProgressButtonCancel: "Cancelar",
+			    // M.H. 1 June 2011 Fix bug #77532
+			    labelSummaryProgressButtonContinue: "Cargar",
+			    labelSummaryProgressButtonDone: "Terminado",
+			    labelProgressBarFileNameContinue: "...",
 
-}
+			    //error messages
+			    errorMessageFileSizeExceeded: "Se ha excedido el tamaño máximo de archivo.",
+			    errorMessageGetFileStatus: "¡Imposible obtener el estado de archivo actual! Probablemente se ha cortado la conexión.",
+			    errorMessageCancelUpload: "¡Imposible enviar comando al servidor para cancelar la carga! Probablemente se ha cortado la conexión.",
+			    errorMessageNoSuchFile: "No se ha encontrado el archivo que ha solicitado. Probablemente el archivo es demasiado grande.",
+			    errorMessageOther: "Error interno al cargar el archivo. Código de error: {0}.",
+			    errorMessageValidatingFileExtension: "Error en la validación de extensión del archivo.",
+			    errorMessageAJAXRequestFileSize: "Error de AJAX al intentar obtener el tamaño del archivo.",
+			    errorMessageMaxUploadedFiles: "Se ha superado el número máximo de archivos que pueden cargarse.",
+			    errorMessageMaxSimultaneousFiles: "El valor de maxSimultaneousFilesUploads es incorrecto. Debe ser superior a 0 o nulo.",
+			    errorMessageTryToRemoveNonExistingFile: "Está intentando eliminar un archivo no existente con el Id. {0}.",
+			    errorMessageTryToStartNonExistingFile: "Está intentando ejecutar un archivo no existente con el Id. {0}.",
 
+			    // M.H. 12 May 2011 - fix bug 74763: add title to all buttons
+			    // title attributes            
+			    titleUploadFileButtonInit: "Cargar archivo",
+			    titleAddFileButton: "Agregar",
+			    titleCancelUploadButton: "Cancelar",
+			    // M.H. 1 June 2011 Fix bug #77532
+			    titleSummaryProgressButtonContinue: "Cargar",
+			    titleClearUploaded: "Borrar cargados",
+			    titleShowDetailsButton: "Mostrar detalles",
+			    titleHideDetailsButton: "Ocultar detalles",
+			    titleSummaryProgressButtonCancel: "Cancelar",
+			    titleSummaryProgressButtonDone: "Terminado",
+			    // M.H. 1 June 2011 Fix bug #77532
+			    titleSingleUploadButtonContinue: "Cargar",
+			    titleClearAllButton: "Borrar cargados"
+		    }
+	    });
+
+    }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI Zoombar localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Validator localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
+
+    if (!$.ig.Validator) {
+	    $.ig.Validator = {
+		    locale: {
+			    defaultMessage: 'Corrija este campo',
+			    selectMessage: 'Seleccione un valor',
+			    rangeSelectMessage: 'Seleccione un número de elementos entre {0} como máximo y {1} como mínimo',
+			    minSelectMessage: 'Seleccione {0} elementos como mínimo',
+			    maxSelectMessage: 'No seleccione más de {0} elementos',
+			    rangeLengthMessage: 'Escriba un valor de entre {0} y {1} caracteres',
+			    minLengthMessage: 'Escriba {0} caracteres como mínimo',
+			    maxLengthMessage: 'No escriba más de {0} caracteres',
+			    requiredMessage: 'Este campo es obligatorio',
+			    maskMessage: 'Rellene todas las posiciones obligatorias',
+			    dateFieldsMessage: 'Rellene los campos de fecha',
+			    invalidDayMessage: 'Día del mes no válido. Escriba el día correcto',
+			    dateMessage: 'Escriba una fecha válida',
+			    numberMessage: 'Escriba un número válido',
+			    rangeMessage: 'Escriba un valor entre {0} y {1}',
+			    minMessage: 'Escriba un valor mayor o igual a {0}',
+			    maxMessage: 'Escriba un valor menor o igual a {0}'
+		    }
+	    };
+    }
+})(jQuery);
+/*!@license
+* Infragistics.Web.ClientUI Video Player localization resources 15.1.20151.1005
+*
+* Copyright (c) 2011-2015 Infragistics Inc.
+*
+* http://www.infragistics.com/
+*
+*/
+
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
+
+    if (!$.ig.VideoPlayer) {
+	    $.ig.VideoPlayer = {};
+
+	    $.extend($.ig.VideoPlayer, {
+
+		    locale: {
+			    liveStream: "Vídeo en directo",
+			    live: "Directo",
+			    paused: "Pausado",
+			    playing: "Reproduciendo",
+			    play: 'Reproducir',
+			    volume: "Volumen",
+			    unsupportedVideoSource: "Los orígenes de vídeo actuales no contienen un formato compatible con su explorador.",
+			    missingVideoSource: "No hay orígenes de vídeo compatibles.",
+			    progressLabelLongFormat: "$currentTime$ / $duration$",
+			    progressLabelShortFormat: "$currentTime$",
+			    enterFullscreen: "Mostrar en pantalla completa",
+			    exitFullscreen: "Salir de pantalla completa",
+			    skipTo: "SALTAR A",
+			    unsupportedBrowser: "El explorador actual no admite vídeo HTML5. <br/>Intente actualizar a una de las siguientes versiones:",
+			    currentBrowser: "Explorador actual: {0}",
+			    ie9: "Microsoft Internet Explorer V 9+",
+			    chrome8: "Google Chrome V 8+",
+			    firefox36: "Mozilla Firefox V 3.6+",
+			    safari5: "Apple Safari V 5+",
+			    opera11: "Opera V 11+",
+			    ieDownload: "http://www.microsoft.com/windows/internet-explorer/default.aspx",
+			    operaDownload: "http://www.opera.com/download/",
+			    chromeDownload: "http://www.google.com/chrome",
+			    firefoxDownload: "http://www.mozilla.com/",
+			    safariDownload: "http://www.apple.com/safari/download/",
+			    buffering: 'Almacenando en búfer...',
+			    adMessage: 'Anuncio: El vídeo se reanudará en $duration$ segundos.',
+			    adMessageLong: 'Anuncio: El vídeo se reanudará en $duration$.',
+			    adMessageNoDuration: 'Anuncio: El vídeo se reanudará después de la publicidad.',
+			    adNewWindowTip: 'Anuncio: Haga clic para abrir el contenido del anuncio en una ventana nueva.',
+			    nonDivException: 'El Reproductor de vídeo Infragistics HTML5 solo puede instanciarse en una etiqueta DIV.',
+			    relatedVideos: 'VÍDEOS RELACIONADOS',
+			    replayButton: 'Volver a reproducir',
+			    replayTooltip: 'Haga clic para volver a reproducir el último vídeo.'
+		    }
+	    });
+
+    }
+})(jQuery);
+/*!@license
+* Infragistics.Web.ClientUI Zoombar localization resources 15.1.20151.1005
+*
+* Copyright (c) 2011-2015 Infragistics Inc.
+*
+* http://www.infragistics.com/
+*
+*/
+
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Zoombar) {
@@ -1085,38 +1265,41 @@ if (!$.ig.Zoombar) {
 	});
 
 }
+})(jQuery);
 /*!@license
-* Infragistics.Web.ClientUI common utilities localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI common utilities localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-$.ig = $.ig || {};
+/*global jQuery */
+(function ($) {
+    $.ig = $.ig || {};
 
-if (!$.ig.util) {
-	$.ig.util = {};
+    if (!$.ig.util) {
+	    $.ig.util = {};
 
-	$.extend($.ig.util, {
+	    $.extend($.ig.util, {
 
-		locale: {
-			unsupportedBrowser: "El explorador actual no admite el elemento canvas de HTML5. <br/>Intente actualizar a una de las siguientes versiones:",
-			currentBrowser: "Explorador actual: {0}",
-			ie9: "Microsoft Internet Explorer V 9+",
-			chrome8: "Google Chrome V 8+",
-			firefox36: "Mozilla Firefox V 3.6+",
-			safari5: "Apple Safari V 5+",
-			opera11: "Opera V 11+",
-			ieDownload: "http://www.microsoft.com/windows/internet-explorer/default.aspx",
-			operaDownload: "http://www.opera.com/download/",
-			chromeDownload: "http://www.google.com/chrome",
-			firefoxDownload: "http://www.mozilla.com/",
-			safariDownload: "http://www.apple.com/safari/download/"
-		}
-	});
+		    locale: {
+			    unsupportedBrowser: "El explorador actual no admite el elemento canvas de HTML5. <br/>Intente actualizar a una de las siguientes versiones:",
+			    currentBrowser: "Explorador actual: {0}",
+			    ie9: "Microsoft Internet Explorer V 9+",
+			    chrome8: "Google Chrome V 8+",
+			    firefox36: "Mozilla Firefox V 3.6+",
+			    safari5: "Apple Safari V 5+",
+			    opera11: "Opera V 11+",
+			    ieDownload: "http://www.microsoft.com/windows/internet-explorer/default.aspx",
+			    operaDownload: "http://www.opera.com/download/",
+			    chromeDownload: "http://www.google.com/chrome",
+			    firefoxDownload: "http://www.mozilla.com/",
+			    safariDownload: "http://www.apple.com/safari/download/"
+		    }
+	    });
 
-}
-
+    }
+})(jQuery);
 

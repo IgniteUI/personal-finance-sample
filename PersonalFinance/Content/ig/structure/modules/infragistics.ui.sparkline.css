@@ -14,3 +14,4 @@
 .ui-chart-non-html5-supported-message .ui-chart-browsers-list a.ui-chart-Opera-icon{background-position:-147px 10px}
 .ui-chart-non-html5-supported-message .ui-chart-browsers-list a.ui-chart-safari-icon{background-position:-213px 10px}
 .ui-chart-non-html5-supported-message .ui-chart-browsers-list a.ui-chart-ie-icon{background-position:-284px 10px}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

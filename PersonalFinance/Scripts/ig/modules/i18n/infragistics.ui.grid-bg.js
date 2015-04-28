@@ -1,12 +1,14 @@
 ﻿/*!@license
-* Infragistics.Web.ClientUI Grid localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Grid localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Grid) {
@@ -34,7 +36,10 @@ if (!$.ig.Grid) {
             //templatingEnabledButNoTemplate: "You have jQueryTemplating set to true, but there is no rowTemplate defined.",
             expandTooltip: "Отвори реда",
             collapseTooltip: "Затвори реда",
-            movingNotAllowedOrIncompatible: "Преместването на съответната колона не може да бъде извършено. Колоната не е намерена или резултатът не е съвместим с оформлението на колоните."
+            movingNotAllowedOrIncompatible: "Преместването на съответната колона не може да бъде извършено. Колоната не е намерена или резултатът не е съвместим с оформлението на колоните.",
+            allColumnsHiddenOnInitialization: "Не е възможно всички колони на мрежата да бъдат скрити. Моля настройте поне една колона да бъде видима.",
+            columnVirtualizationNotSupportedWithPercentageWidth: "Виртуализация на колони не е възможна когато ширината на мрежата е зададена в процентни единици.",
+            mixedWidthsNotSupported: "Не се поддържа смесени/частични настройки на ширината на колоните. Не се поддържат случаи, в които някои ширини на колоните са зададени в проценти, а други са зададени в пиксели (или изобщо не са зададени)."
         }
     });
 
@@ -54,6 +59,8 @@ if (!$.ig.Grid) {
             lessThanOrEqualToNullText: "По-малко или равно на...",
             onNullText: "На...",
             notOnNullText: "Не на...",
+            afterNullText: "След",
+            beforeNullText: "Преди",
             emptyNullText: "Празно",
             notEmptyNullText: "Не е празно",
             nullNullText: "Null",
@@ -130,7 +137,8 @@ if (!$.ig.Grid) {
             modalDialogRootLevelHierarchicalGrid: 'Най-горно ниво',
             modalDialogDropDownButtonCaption: "Натисни за показване/скриване",
             modalDialogButtonApplyText: 'Приложи',
-            modalDialogButtonCancelText: 'Отказ'
+            modalDialogButtonCancelText: 'Отказ',
+            fixedVirualizationNotSupported: 'Функцията GroupBy не работи с фиксирана виртуализация.'
         }
     });
 
@@ -155,6 +163,15 @@ if (!$.ig.Grid) {
         }
     });
 
+        $.ig.GridResizing = $.ig.GridResizing || {};
+
+        $.extend($.ig.GridResizing, {
+            locale: {
+            	noSuchVisibleColumn: "Не е открита видима колона с посочения идентификатор. Можете да оразмерявате само видими колони.",
+            	resizingAndFixedVirtualizationNotSupported: "Функцията за настройване на размера не работи когато е включена виртуализация или виртуализация на колона чрез фиксирана стойност на опцията virtualizationMode. За да избегнете тази грешка, моля настройте virtualizationMode на 'continuous' или използвайте само rowVirtualization."
+            }
+        });
+
     $.ig.GridPaging = $.ig.GridPaging || {};
 
     $.extend($.ig.GridPaging, {
@@ -178,7 +195,16 @@ if (!$.ig.Grid) {
             firstPageTooltip: "отиди на първата страница",
             lastPageTooltip: "отиди на последната страница",
             pageTooltipFormat: "страница ${index}",
-            pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} от ${recordCount} записа"
+                pagerRecordsLabelTemplate: "${startRecord} - ${endRecord} от ${recordCount} записа",
+                invalidPageIndex: "Невалиден индекс на страница - индексът трябва да бъде по-голям или равен на 0 и по-малък от общия брой на страниците"
+        }
+    });
+
+    $.ig.GridSelection = $.ig.GridSelection || {};
+
+    $.extend($.ig.GridSelection, {
+        locale: {
+            persistenceImpossible: "За запазване избора на състояние е нужно опцията primaryKey на igGrid да бъде настроена. За да не виждате тази грешка отново, моля, дефинирайте първичен ключ или изключете запазването."
         }
     });
 
@@ -187,7 +213,8 @@ if (!$.ig.Grid) {
     $.extend($.ig.GridRowSelectors, {
 
         locale: {
-            selectionNotLoaded: "igGridSelection не е инициализиран. За да не получавате тази грешка, моля добавете Selection feature за грида или променете requireSelection опцията за Row Selectors feature да бъде равна на false."
+            selectionNotLoaded: "igGridSelection не е инициализиран. За да не получавате тази грешка, моля добавете Selection feature за грида или променете requireSelection опцията за Row Selectors feature да бъде равна на false.",
+            columnVirtualizationEnabled: "Когато виртуализация на колони е включена, igGridRowSelectors не се поддържа. За да избегнете това съобщение за грешка, моля включете само виртуализация на редове настройвайки свойството на 'rowVirtualization' на мрежата на true или настройте режима на виртуализация на 'continuous'."
         }
     });
 
@@ -256,7 +283,10 @@ if (!$.ig.Grid) {
             noPrimaryKeyException: 'Манипулационни операции върху данни след изтриването на ред се поддържат само ако имате дефиниран "primaryKey" в опциите на грида.',
             hiddenColumnValidationException: 'Ред със скрита колона не може да бъде променян ако имате включена валидация.',
             dataDirtyException: 'Гридът има неизчистени транзакции, което може да повлияе на рендерирането на данните. За да предотвратите грешки, можете да разрешите опцията "autoCommit" в грида, или да прихванете събитието "dataDirty" от igGridUpdating и да го отмените. Докато обработвате това събитие, приложението ви може също така да извършва "commit()" на данни в грида.',
-            rowEditDialogCaptionLabel: 'Редактирай данните в реда'
+            recordOrPropertyNotFoundException: 'The specified record or property was not found in the data source.',
+            rowEditDialogCaptionLabel: 'Редактирай данните в реда',
+            unboundColumnsNotSupported: 'ColumnFixing is not supported with Unbound Columns',
+            excelNavigationNotSupportedWithCurrentEditMode: "Режима Excel Navigation се поддържа само за режимите Cell Edit и Row Edit. За да избегнете тази грешка или изключете excelNavigationMode, или настройте editMode на клетки или редове."
         }
     });
 
@@ -270,6 +300,7 @@ if (!$.ig.Grid) {
             movingDialogCaptionButtonAsc: 'Премести нагоре',
             movingDialogCaptionText: 'Премести колоните',
             movingDialogDisplayText: 'Премести колоните',
+            movingDialogDropTooltipText: 'Премести тук',
             dropDownMoveLeftText: 'Премести наляво',
             dropDownMoveRightText: 'Премести надясно',
             dropDownMoveFirstText: 'Премести в началото',
@@ -289,26 +320,59 @@ if (!$.ig.Grid) {
             featureChooserTextFixedColumn: 'Фиксирай колоната',
             featureChooserTextUnfixedColumn: 'Освободи колоната',
             groupByNotSupported: 'igGridGroupBy не се поддържа с ColumnFixing',
-            virtualizationNotSupported: 'virtualization не се поддържа с ColumnFixing',
+            virtualizationNotSupported: 'Опцията за виртуализация на мрежата позволява виртуализация на редове и колони. Виртуализация на колони не се поддържа с ColumnFixing. Моля настройте опцията rowVirtualization на мрежата на true.',
+            columnVirtualizationNotSupported: 'Виртуализация на колони не се подържа с ColumnFixing.',
             columnMovingNotSupported: 'igGridColumnMoving не се поддържа с ColumnFixing',
             hidingNotSupported: 'igGridHiding не се поддържа с ColumnFixing',
             hierarchicalGridNotSupported: 'igHierarchicalGrid не се поддържа с ColumnFixing',
             responsiveNotSupported: 'igGridResponsive не се поддържа с ColumnFixing',
-            noGridWidthHeightNotSupported: 'Когато мрежата няма височина и ширина ColumnFixing не се поддържа.'
+            noGridWidthNotSupported: 'Трябва да зададете широчина на грида в пиксели когато използвате ColumnFixing',
+            defaultColumnWidthInPercentageNotSupported: "Широчина на колоните в % не се поддържа с ColumnFixing",
+            columnsWidthShouldBeSetInPixels: 'ColumnFixing изисква всички колони да имат зададена широчина в пиксели. Проверете колона с идентификатор: ',
+            unboundColumnsNotSupported: 'ColumnFixing не се поддържа с Unbound Columns.',
+            excelNavigationNotSupportedWithCurrentEditMode: "Режима Excel Navigation се поддържа само за режимите Cell Edit и Row Edit. За да избегнете тази грешка или изключете excelNavigationMode, или настройте editMode на клетки или редове.",
+            internalErrors: {
+                none: 'Няма грешка',
+                notValidIdentifier: 'Не съществува колона със зададения идентификатор.',
+                fixingRefused: 'Фиксирането е отказано понеже има само една видима не фиксирана колона.',
+                fixingRefusedMinVisibleAreaWidth: 'Не е позволено фиксирането на колони заради минималната ширина на видимата зона за не фиксираните колони.',
+                alreadyHidden: 'Опитвате се да фиксирате/премахнете фиксиране на скрита колона.',
+                alreadyUnfixed: 'Колоната, на която се опитвате да премахнете фиксирането, вече е не фиксирана.',
+                alreadyFixed: 'Колоната, която се опитвате да фиксирате, вече е фиксирана.',
+                unfixingRefused: 'Премахване на фиксирането е отказано защото има само една видима фиксирана колона и поне една скрита фиксирана колона.',
+                targetNotFound: 'Не е намерена целевата колона със зададения целеви идентификатор.'
+            }
         }
     });
 
-    $.ig.GridLoadOnDemand = $.ig.GridLoadOnDemand || {};
+    $.ig.GridAppendRowsOnDemand = $.ig.GridAppendRowsOnDemand || {};
 
-    $.extend($.ig.GridLoadOnDemand, {
+    $.extend($.ig.GridAppendRowsOnDemand, {
         locale: {
             loadMoreDataButtonText: 'Зареди още данни',
-            loadOnDemandRequiresHeight: 'Фунцкията Зареди при поискване изисква задаване на височина',
-            groupByNotSupported: 'igGridGroupBy не се поддържа с LoadOnDemand',
-            pagingNotSupported: 'igGridPaging не се поддържа с LoadOnDemand',
-            cellMergingNotSupported: 'igGridCellMerging не се поддържа с LoadOnDemand',
-            virtualizationNotSupported: 'virtualization не се поддържа с LoadOnDemand'
+            appendRowsOnDemandRequiresHeight: 'Фунцкията AppendRowsOnDemand изисква задаване на височина',
+            groupByNotSupported: 'igGridGroupBy не се поддържа с AppendRowsOnDemand',
+            pagingNotSupported: 'igGridPaging не се поддържа с AppendRowsOnDemand',
+            cellMergingNotSupported: 'igGridCellMerging не се поддържа с AppendRowsOnDemand',
+            virtualizationNotSupported: 'virtualization не се поддържа с AppendRowsOnDemand'
         }
+    });
+
+    $.ig.igGridResponsive = $.ig.igGridResponsive || {};
+
+    $.extend($.ig.igGridResponsive, {
+    	locale: {
+    	    fixedVirualizationNotSupported: 'igGridResponsive не се поддържа с фиксирана виртуализация.'
+    	}
+    });
+
+    $.ig.igGridMultiColumnHeaders = $.ig.igGridMultiColumnHeaders || {};
+
+    $.extend($.ig.igGridMultiColumnHeaders, {
+    	locale: {
+    	    multiColumnHeadersNotSupportedWithColumnVirtualization: 'Функцията Multi-column headers не се поддържа с columnVirtualization.'
+    	}
     });
 
 }
+})(jQuery);

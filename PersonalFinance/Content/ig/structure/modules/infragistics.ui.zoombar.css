@@ -17,3 +17,4 @@
 .ui-igzoombar-scrollbar-thumb:after{content:"\0131\0131\0131";font-size:11px;cursor:default}
 .ui-igzoombar-scrollbar-thumb,.ui-igzoombar-window-handle{background-color:#F9F9F9;background-image:none;background-repeat:no-repeat;border:1px solid #B9B9B9;color:#4B4B4B;font-weight:normal}
 .ui-igzoombar-scrollbar-thumb.ui-state-hover,.ui-igzoombar-window-handle.ui-state-hover{background-color:#E8E8E8}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

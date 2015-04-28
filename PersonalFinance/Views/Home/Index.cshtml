@@ -14,17 +14,19 @@
     <script src="@ViewBag.ResourceFile" type="text/javascript"></script>
 
     <script type="text/javascript">
-        var expensesTile;
-        var incomeTile;
-        var assetsTile;
-        var liabilitiesTile;
-        var budgetTile;
+        var expensesTile, 
+        incomeTile,
+        assetsTile,
+        liabilitiesTile,
+        budgetTile,
+        igniteuiAnchorTag = "#igniteuiAnchorTag",
+        igAnchorTag = "#igAnchorTag",
 
         //  Localization variables
         //  resources is defined in the specific locale's JS file (for example, ja.js for Japanese ja locale)
-        var currentLanguage = "@ViewBag.Language";
-        var loc = new Localizer(resources);
-        var locIndex = loc.get("Index");    //  Cache the Index view localization items for performance and clarity
+        currentLanguage = "@ViewBag.Language",
+        loc = new Localizer(resources),
+        locIndex = loc.get("Index");    //  Cache the Index view localization items for performance and clarity
         
         $(function () {
             self.setInterval('setTimestampLabel()', 1000);
@@ -34,6 +36,9 @@
             //  Enable styling of BlockUI elements by CSS
             $.blockUI.defaults.css = { "z-index" : 0 };
             $.blockUI.defaults.overlayCSS = { "z-index": 1 };
+            $("#sourceDownloadAnchor").attr("href", locIndex["sourceDownloadUrl"])
+            $(igAnchorTag).attr("href", locIndex["igURL"]);
+            $(igniteuiAnchorTag).attr("href", locIndex["igniteuiURL"]);
             $("#infoDialog").prepend(locIndex["InfoDescription"]);
             $("#infoDialog").igDialog({
                 state: "closed",
@@ -41,7 +46,7 @@
                 draggable: false,
                 resizable: false,
                 headerText: locIndex["InfoHeader"],
-                height: "350px",
+                height: "400px",
                 width: "500px"
             });
             $("#info").on("click", function () {
@@ -167,10 +172,11 @@
         <span class="dialog-sprite ds-chart"></span><span class="control-title">Data Chart</span>
         <span class="dialog-sprite ds-combo"></span><span class="control-title">Combo</span>
         <div class="dialog-dl-qr-wrap">
-            <a href="#" class="dialog-download">Download Source Code<span>&nbsp;</span></a>
-            <span id="barcode"></span><span class="dialog-qr">Scan to view on your mobile device!</span>
+            <a id="sourceDownloadAnchor" href="#"  target="_blank" class="dialog-download" data-localize="sourceDownload">Download Source Code</a>
+            <span class="dialog-dl-arrow">&nbsp;</span>
+            <span id="barcode"></span><span class="dialog-qr" data-localize="qrInfo">Scan to view on your mobile device!</span>
         </div>
-        <div class="ignite-ui-about"><img src="@Url.Content("~/Content/images/igniteui.png")" /></div>
-        <div class="infragistics-about"><img src="@Url.Content("~/Content/images/infragistics.png")" /></div>
+        <div class="ignite-ui-about"><a id="igniteuiAnchorTag" href="#" target="_blank"><img style="border:none" src="@Url.Content("~/Content/images/igniteui.png")" /></a></div>
+        <div class="infragistics-about"><a id="igAnchorTag" href="#" target="_blank" style="border:none"><img src="@Url.Content("~/Content/images/infragistics.png")" /></a></div>
 	</div>
 }

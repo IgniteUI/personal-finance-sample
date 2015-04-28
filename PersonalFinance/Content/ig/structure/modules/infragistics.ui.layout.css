@@ -9,12 +9,13 @@
 .ig-layout-flow-item{float:left;margin:5px;width:10%;list-style-type:none;border:1px solid #D3D3D3;height:100px;overflow:hidden}
 .ig-layout-vertical{overflow:auto}
 .ig-layout-vertical-item{margin:5px;width:10%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;border:1px solid #D3D3D3;height:100px;overflow:hidden}
+.ig-layout-border{position:relative;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
 .ig-layout-border-item{position:relative}
-.ig-layout-border-container{float:left;height:100%;width:100%}
+.ig-layout-border-container{height:100%;width:100%}
 .ig-layout-border-wrapper1{position:relative;float:left;width:100%}
 .ig-layout-border-wrapper2{position:relative;float:left;width:100%}
-.ig-layout-border-header{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;clear:both;width:100%;text-align:center;font-size:large;padding:.3em 0}
-.ig-layout-border-footer{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;clear:both;width:100%;text-align:center;font-size:large;padding:.3em 0}
+.ig-layout-border-header{position:absolute;top:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;width:100%;text-align:center;font-size:large;padding:.3em 0}
+.ig-layout-border-footer{position:absolute;bottom:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;width:100%;text-align:center;font-size:large;padding:.3em 0}
 .ig-layout-border-left{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;height:100%;overflow:hidden;float:left}
 .ig-layout-border-center{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;overflow:auto;height:100%}
 .ig-layout-border-right{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;height:100%;overflow:hidden;float:right}
@@ -73,3 +74,4 @@
 .ig-layout-col .row .col11{width:91.45299145299145%}
 .ig-layout-col .row .col12{width:100%}
 }
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

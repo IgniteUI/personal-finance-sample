@@ -1,4 +1,4 @@
-﻿.ui-igedit,.ui-widget .ui-igedit{background:#fff;font-size:1em}
+﻿.ui-igedit,.ui-widget .ui-igedit{background:#fff;font-size:1em;-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box}
 .ui-igedit-container{overflow:hidden;padding:0!important}
 .ui-igedit .ui-icon{float:none!important}
 .ui-igedit-field,.ui-widget .ui-igedit-field{outline:0;padding:1px 2px 1px 2px;font-size:1em;background-color:#fff;color:#333;text-shadow:none}
@@ -18,3 +18,4 @@
 .ui-igedit-listitemcolumnborder,.ui-widget .ui-igedit-listitemcolumnborder{border-right-width:1px}
 .ui-igedit-no-top-corners{-moz-border-radius-topleft:0;-moz-border-radius-topright:0;-webkit-border-top-left-radius:0;-webkit-border-top-right-radius:0;border-top-left-radius:0;border-top-right-radius:0}
 .ui-igedit-no-bottom-corners{-moz-border-radius-bottomleft:0;-moz-border-radius-bottomright:0;-webkit-border-bottom-left-radius:0;-webkit-border-bottom-right-radius:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

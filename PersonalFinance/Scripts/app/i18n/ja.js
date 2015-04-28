@@ -9,8 +9,11 @@
         "controlsUsed": "Infragistics コントロール:",
         "InfoDescription": "	<p>ファイナンス ダッシュボードのサンプルは、データ チャート、ツリーマップとズームバーコントロールの金融業界で使用できる機能を紹介しています。データ チャートは、財務チャートにおいて高いパフォーマンスとスピードを発揮しています。このサンプルでは、数百万のデータ ポイントや大規模なデータセットにおいて、リアルタイムな更新を使用します。データ チャートでは主要な統計や技術的な指標、および主要な競合他者との比較などができます。</p>",
         "ShowCaseUrl": "http://jp.igniteui.com/personal-finance-sample",
-        "sourceDownload": "Download Source Code",
-        "qrInfo": "Scan to view on your mobile device!"
+        "sourceDownloadUrl": "http://jp.infragistics.com/downloads/generate/8286279D-DB21-E211-9359-0050568A73AE",
+        "sourceDownload": "ソース コードのダウンロード",
+        "qrInfo": "スキャンしてモバイル デバイスで表示",
+        "igniteuiURL": "http://jp.igniteui.com/",
+        "igURL": "http://jp.infragistics.com/"
     },
     "BudgetTracking": {
         "Budget": "予算",

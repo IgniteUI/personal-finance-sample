@@ -554,7 +554,7 @@
     function initDatePickers() {
         $.datepicker.setDefaults($.ig.regional.defaults);
         $(startDatePicker).igDatePicker({
-            width: 100,
+            width: 95,
             dateInputFormat: "date",
             value: new Date(),
             required: true,
@@ -563,7 +563,7 @@
         });
 
         $(endDatePicker).igDatePicker({
-            width: 100,
+            width: 95,
             dateInputFormat: "date",
             value: new Date(),
             required: true,
@@ -642,23 +642,23 @@
             selector = periodButtons;
         //Init period tooltips
         options.selectors = "a[data-period]";
-        options.contentFunction = periodContentFunction;
+        options.contentTemplate = periodContentFunction;
         initPopover(options, selector);
         //Init chart tooltips
         selector = chartSeriesGroup;
         options.selectors = "a[data-chartSeries]";
-        options.contentFunction = chartsContentFunction;
+        options.contentTemplate = chartsContentFunction;
         initPopover(options, selector);
         
         //Init ChangeView Tooltip
         options.selectors = "a[data-controls]";
-        options.contentFunction = controlsContentFunction;
+        options.contentTemplate = controlsContentFunction;
         initPopover(options, tileElement);
 
         //Init DatePickers Tooltips 
         selector = datePickers;
         options.selectors = "input[data-editorType]";
-        options.contentFunction = datePickersContentFunction;
+        options.contentTemplate = datePickersContentFunction;
         initPopover(options, selector);
 
     }

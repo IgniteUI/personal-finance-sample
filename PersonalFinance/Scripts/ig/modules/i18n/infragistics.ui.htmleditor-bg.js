@@ -1,12 +1,14 @@
 ﻿/*!@license
-* Infragistics.Web.ClientUI HTML Editor localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI HTML Editor localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.HtmlEditor) {
@@ -58,8 +60,6 @@ if (!$.ig.HtmlEditor) {
 			linkTargetTopmostWindowDialogText: 'Най-горният прозорец',
 			applyButtonTitle: 'Изпълни',
 			cancelButtonTitle: 'Отказ',
-			collapseButtonTitle: 'Прибери',
-			expandButtonTitle: 'Отвори',
 			defaultToolbars: {
 			    textToolbar: "лентата с инструменти за манипулация на текст",
 			    formattingToolbar: "лентата с инструменти за форматиране на текст",
@@ -110,23 +110,25 @@ if (!$.ig.HtmlEditor) {
 					]
 			},
 			fontSizes: [
-				{ text: "1", value: "1 (8pt)", style: "xx-small"},
-				{ text: "2", value: "2 (9pt)", style: "x-small" },
-				{ text: "3", value: "3 (10pt)", style: "small" },
-				{ text: "4", value: "4 (12pt)", style: "medium" },
-				{ text: "5", value: "5 (14pt)", style: "large" },
-				{ text: "6", value: "6 (16pt)", style: "x-large" },
-				{ text: "7", value: "7 (18pt)", style: "xx-large" }
+				{ text: "1", value: "7.5 pt" },
+				{ text: "2", value: "10 pt" },
+				{ text: "3", value: "12 pt" },
+				{ text: "4", value: "13.5 pt" },
+				{ text: "5", value: "18 pt" },
+				{ text: "6", value: "24 pt" },
+				{ text: "7", value: "36 pt" }
 				],
 			formatsList: [
-					{ text: "h1", value: "Heading 1" },
-					{ text: "h2", value: "Heading 2" },
-					{ text: "h3", value: "Heading 3" },
-					{ text: "h4", value: "Heading 4" },
-					{ text: "h5", value: "Heading 5" },
-					{ text: "h6", value: "Heading 6" }
+					{ text: "h1", value: "Заглавие 1" },
+					{ text: "h2", value: "Заглавие 2" },
+					{ text: "h3", value: "Заглавие 3" },
+					{ text: "h4", value: "Заглавие 4" },
+					{ text: "h5", value: "Заглавие 5" },
+					{ text: "h6", value: "Заглавие 6" },
+                    { text: "p", value: "Нормално" }
 				]
 		}
 
 	});
 }
+})(jQuery);

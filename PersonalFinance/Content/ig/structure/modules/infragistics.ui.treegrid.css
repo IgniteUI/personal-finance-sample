@@ -1,0 +1,5 @@
+﻿.ui-igtreegrid-expandcell{display:inline-block;margin:0 6px 0 0;min-width:16px;cursor:pointer}
+.ui-igtreegrid-expansion-indicator{width:16px;height:16px;float:left;margin:0}
+.ui-igtreegrid-expansion-column-container{display:inline-block;min-width:10px;cursor:pointer}
+.ui-igtreegrid-record-not-matchfiltering{opacity:.5;-ms-filter:"alpha(opacity=50)";-moz-opacity:.5;filter:alpha(opacity=50)}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

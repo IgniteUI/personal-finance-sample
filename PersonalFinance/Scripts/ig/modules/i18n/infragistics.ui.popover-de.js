@@ -1,24 +1,25 @@
 ﻿/*!@license
-* Infragistics.Web.ClientUI Popover localization resources 13.2.20132.1010
+* Infragistics.Web.ClientUI Popover localization resources 15.1.20151.1005
 *
-* Copyright (c) 2011-2013 Infragistics Inc.
+* Copyright (c) 2011-2015 Infragistics Inc.
 *
 * http://www.infragistics.com/
 *
 */
 
-/*jQuery must be defined before this. If it is not the $ variable is created*/
-$ = $ || {};
-
+/*global jQuery */
+(function ($) {
 $.ig = $.ig || {};
 
 if (!$.ig.Popover) {
-    $.ig.Popover = {};
+	$.ig.Popover = {};
 
-    $.extend( $.ig.Popover, {
-	    locale: {
-	        popoverOptionChangeNotSupported: "Die Änderung der folgenden Option nach der Initialisierung von igPopover wird nicht unterstützt:"
+	$.extend( $.ig.Popover, {
+		locale: {
+			popoverOptionChangeNotSupported: "Die Änderung der folgenden Option nach der Initialisierung von igPopover wird nicht unterstützt:",
+			popoverShowMethodWithoutTarget: "Der Target-Parameter der Show-Funktion ist obligatorisch, wenn die Selectors-Option verwendet wird"
 		}
 	});
 
 }
+})(jQuery);

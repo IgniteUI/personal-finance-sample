@@ -42,3 +42,4 @@
 .ui-igsplitter-collapse-button-horizontal-right{margin-left:22px}
 .ui-igsplitter-splitbar-collapsed .ui-igsplitter-collapse-button-horizontal-left,.ui-igsplitter-splitbar-collapsed .ui-igsplitter-collapse-button-horizontal-right{margin-left:-22px}
 }
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

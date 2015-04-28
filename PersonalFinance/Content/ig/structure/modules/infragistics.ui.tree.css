@@ -1,8 +1,8 @@
-﻿.ui-igtree{list-style:none;overflow:auto;padding-bottom:.2em}
+﻿.ui-igtree{list-style:none;overflow:auto;padding-bottom:.2em;-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;user-select:none}
 .ui-igtree ul{list-style:none;padding-left:0;margin-left:0}
 .ui-igtree .ui-igtree-root{padding-left:0;margin-left:0}
 .ui-igtree-root{padding-left:0;margin-left:0}
-.ui-igtree li{position:relative;line-height:1.6em;padding-top:.1em;padding-bottom:.1em}
+.ui-igtree li{position:relative;line-height:1.9em;padding-top:.1em;padding-bottom:.1em}
 .ui-igtree-collection{white-space:nowrap}
 .ui-igtree-expander{position:absolute;left:.8em;top:.8em;margin-top:-8px;margin-left:-8px;width:16px;height:16px}
 .ui-igtree a{text-decoration:none;padding:1px 3px}
@@ -24,3 +24,4 @@
 .ui-igtree-dropindicator p{line-height:1.8em;margin:0;padding:0 .7em}
 .ui-igtree-insertline.ui-state-default{height:0;border-width:1px 0 0;background:transparent none;margin:-1px 0 0;width:50%;position:relative;bottom:-0.1em}
 .touch .ui-igtree{font-size:1.3em}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}

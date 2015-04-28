@@ -26,6 +26,8 @@
 .ui-igpivot-draghelper{clear:left;float:left;overflow:visible;white-space:nowrap;margin-left:35px}
 .ui-igpivot-draghelper .ui-icon{position:relative;float:left;margin-top:-8px;margin-right:.3em;top:.9em}
 .ui-igpivot-draghelper p{line-height:1.8em;margin:0;padding:0 .7em}
+.ui-igpivotgrid .ui-iggrid-headertext,.ui-igpivot-rowheaderlink{display:inline-block}
+.ui-igpivot-rowheaderlink{text-decoration:underline}
 .ui-igpivotview .ui-igsplitter-collapse-single-button{z-index:9}
 .ui-igpivotdataselector{background:#F3F3F3;font-size:.9em;overflow-x:hidden;overflow-y:auto}
 .ui-igpivotdataselector .ui-igpivotdataselector-root{padding:10px}
@@ -71,9 +73,9 @@
 .ui-igpivotgrid-header .ui-icon{display:inline-block}
 .ui-igpivotgrid-header .ui-iggrid-headerbutton{cursor:pointer}
 .ui-igpivotgrid th.ui-igpivotgrid-header.ui-iggrid-multiheader-cell{text-align:left}
-.ui-igpivotgrid-header[data-sort]>.ui-iggrid-headertext,.ui-iggrid-sortindicator,.ui-igpivotgrid-header[data-sort][data-axis='empty_axis'],.ui-igpivotgrid-header[data-sortheader]>.ui-iggrid-headertext,.ui-iggrid-sortindicator{cursor:pointer}
-.ui-igpivot-overlaydroparea{position:absolute;z-index:-1}
-.ui-igpivot-overlaydroparea.active{z-index:1}
+.ui-igpivotgrid-header[data-sort]>.ui-iggrid-headertext,.ui-iggrid-sortindicator,.ui-igpivotgrid-header[data-sort][data-axis='empty_axis'],.ui-igpivotgrid-header[data-sortheader]>.ui-iggrid-headertext,.ui-iggrid-sortindicator,.ui-igpivotgrid-header[data-item-sortheader]>.ui-igpivot-rowheaderlink{cursor:pointer}
+.ui-igpivot-overlaydroparea{position:absolute;display:none;z-index:100}
+.ui-igpivot-overlaydroparea.active{z-index:101}
 .ui-igpivot-dropareaheader.ui-iggrid-header{position:relative;overflow:hidden;text-overflow:clip;height:2em}
 .ui-igpivot-dropareaheader .ui-igpivot-droparea{white-space:nowrap;margin:0;position:relative;overflow:visible}
 .ui-igpivot-dropareaheader .ui-iggrid-headerbutton{display:inline-block;height:2em;vertical-align:bottom}
@@ -86,3 +88,5 @@
 .ui-igpivotgrid .ui-igpivot-metadataitem .ui-icon-close{right:.5em}
 .ui-igpivot-dropareaheader .ui-igpivot-droparea .ui-igpivot-metadataitem *:not(.ui-icon){display:inline}
 .ui-igpivot-dropareaheader .ui-igpivot-droparea .ui-igpivot-insertitem{width:2px;height:26px;margin:0;display:inline-block;vertical-align:top}
+.ui-igpivotgrid-kpis{display:block;margin:auto;width:16px;height:16px;background-image:url('../images/igPivot/kpi-icons.png')}
+.ui-igtrialwatermark{width:160px;height:20px;background-image:url(../images/trial.png);opacity:.25;filter:alpha(opacity=25);-ms-filter:"alpha(opacity=25)";-khtml-opacity:.25;-moz-opacity:.25}
